@@ -1,10 +1,26 @@
 import  ROOT
+import os
+
+
+ROOT.gInterpreter.Declare('#include "prova.h"')
+
 
 # Enable multi-threading
-ROOT.ROOT.EnableImplicitMT()
+ROOT.gInterpreter.ProcessLine("ROOT::EnableImplicitMT(16)")
 
 
 #Python functions
+
+def filter_Z_mass(rdf):
+    '''This function select good Z mass events'''
+
+    rdf_Z_a_mass = rdf.Filter("Z_mass[0] > 40 && Z_mass[0] < 120", "Mass of first Z candidate in [40, 120]")
+    rdf_Z_b_mass = rdf_Z_a_mass.Filter("Z_mass[1] > 12 && Z_mass[1] < 120", "Mass of second Z candidate in [12, 120]")
+
+
+    return rdf_Z_b_mass
+
+
 
 
 def selection_2e2mu(rdf):
@@ -12,72 +28,110 @@ def selection_2e2mu(rdf):
     
     rdf_2e2mu = rdf.Filter("nElectron >= 2 && nMuon >= 2", "First selection with at least 2 electrons and 2 muons")
     
-    rdf_pt = rdf_2e2mu.Filter("Muon_pt > 5 && Electron_pt > 7", "Pt cuts")
+    rdf_pt = rdf_2e2mu.Filter("All(Muon_pt>5) && All(Electron_pt>7)", "Pt cuts")
     
-    rdf_eta = rdf_pt.Filter("abs(Muon_eta) < 2.4 && abs(Electron_eta) < 2.5", "Direction cuts (geometrical acceptance)")
+    rdf_eta = rdf_pt.Filter("All(abs(Electron_eta)<2.5) && All(abs(Muon_eta)<2.4)", "Direction cuts (geometrical acceptance)")
     
-    rdf_charge = rdf_eta.Filter("Sum(Electron_charge) == 0 && Sum(Muon_charge) == 0", "Selection for total 0 charge")
+    rdf_iso = rdf_eta.Filter("All(abs(Electron_pfRelIso03_all)<0.40) && All(abs(Muon_pfRelIso04_all)<0.40)", "Require good isolation")
     
-    return rdf_charge
+    #Definition of 3d impact parameter significance for Electrons
+    rdf_el_3dip = rdf_iso.Define("Electron_3DIP", "sqrt(Electron_dxy*Electron_dxy + Electron_dz*Electron_dz)")    
+    rdf_el_3dips = rdf_el_3dip.Define("Electron_3DIPS", "Electron_3DIP/sqrt(Electron_dxyErr*Electron_dxyErr + Electron_dzErr*Electron_dzErr)")
+    
+    rdf_el_track = rdf_el_3dips.Filter("All(Electron_3DIPS<4) && All(abs(Electron_dxy)<0.5) && All(abs(Electron_dz)<1.0)", "Muons and electrons come from the same vertex")
+    
+    #Definition of 3d impact parameter significance for Muons                                
+    rdf_mu_3dip = rdf_el_track.Define("Muon_3DIP", "sqrt(Muon_dxy*Muon_dxy + Muon_dz*Muon_dz)")
+    rdf_mu_3dips = rdf_mu_3dip.Define("Muon_3DIPS", "Muon_3DIP/sqrt(Muon_dxyErr*Muon_dxyErr + Muon_dzErr*Muon_dzErr)")
+    
+    rdf_mu_track = rdf_mu_3dips.Filter("All(Muon_3DIPS<4) && All(abs(Muon_dxy)<0.5) && All(abs(Muon_dz)<1.0)", "Muons and electrons come from the same vertex")
+
+    rdf_charge = rdf_mu_track.Filter(" Sum(Electron_charge) == 0 && Sum(Muon_charge) == 0", "Selection for total 0 charge and 0 leptons flavour")
+    
+    #Definition of Z masses for filtering
+    rdf_Z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_2el2mu(Electron_pt, Electron_eta, Electron_phi,"
+                                " Electron_mass, Muon_pt, Muon_eta, Muon_phi, Muon_mass)")
+    rdf_cut = filter_Z_mass(rdf_Z_mass)
+    
+    
+    return rdf_cut
 
 def selection_4mu(rdf):
     '''This function select events with 2mu+ 2mu-'''
     
     rdf_4mu = rdf.Filter("nMuon >= 4", "First selection with at least 4 muons")
     
-    rdf_pt = rdf_4mu.Filter("Muon_pt > 5", "Pt cuts")
+    rdf_kin = rdf_4mu.Filter("All(Muon_pt>5) && All(abs(Muon_eta)<2.4)", "Kinematics cuts")
     
-    rdf_eta = rdf_pt.Filter("abs(Muon_eta) < 2.4", "Direction cuts (geometrical acceptance)")
+    rdf_iso = rdf_kin.Filter("All(abs(Muon_pfRelIso04_all)<0.4)", "Require good isolation")
     
-    rdf_charge = rdf_eta.Filter("Sum(Muon_charge == 1) == 2 && Sum(Muon_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative muons)")
+    #Definition of 3d impact parameter significance 
+    rdf_3dip = rdf_kin.Define("Muon_3DIP", "sqrt(Muon_dxy*Muon_dxy + Muon_dz*Muon_dz)")
+    rdf_3dips = rdf_3dip.Define("Muon_3DIPS", "Muon_3DIP/sqrt(Muon_dxyErr*Muon_dxyErr + Muon_dzErr*Muon_dzErr)")
     
-    return rdf_charge
+    rdf_pv = rdf_3dips.Filter("All(Muon_3DIPS<4) && All(abs(Muon_dxy)<0.5) && All(abs(Muon_dz)<1.0)", "Muons come from the same vertex")
+    
+    rdf_charge = rdf_pv.Filter("Sum(Muon_charge == 1) == 2 && Sum(Muon_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative muons)")
+    
+    #Definition of Z masses for filtering
+    rdf_Z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_4l(Muon_pt, Muon_eta, Muon_phi, Muon_mass, Muon_charge)")
+    rdf_cut = filter_Z_mass(rdf_Z_mass)
+    
+    
+    return rdf_cut
 
 def selection_4e(rdf):
     '''This function select events with 2e+ 2e-'''
     
     rdf_4e = rdf.Filter("nElectron >= 4", "First selection with at least 4 electrons")
     
-    rdf_pt = rdf_4e.Filter("Electron_pt > 7", "Pt cuts")
+    rdf_kin = rdf_4e.Filter("All(Electron_pt>7) && All(abs(Electron_eta)<2.5)", "Kinematics cuts")
     
-    rdf_eta = rdf_pt.Filter("abs(Electron_eta) < 2.5", "Direction cuts (geometrical acceptance)")
+    rdf_iso = rdf_kin.Filter("All(abs(Electron_pfRelIso03_all)<0.40)", "Require good isolation")
     
-    rdf_charge = rdf_eta.Filter("Sum(Electron_charge == 1) == 2 && Sum(Electron_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative electrons)")
+    #Definition of 3d impact parameter significance for Electrons
+    rdf_3dip = rdf_iso.Define("Electron_3DIP", "sqrt(Electron_dxy*Electron_dxy + Electron_dz*Electron_dz)")    
+    rdf_3dips = rdf_3dip.Define("Electron_3DIPS", "Electron_3DIP/sqrt(Electron_dxyErr*Electron_dxyErr + Electron_dzErr*Electron_dzErr)")
     
-    return rdf_charge
+    rdf_pv = rdf_3dips.Filter("All(Electron_3DIPS<4) && All(abs(Electron_dxy)<0.5) && All(abs(Electron_dz)<1.0)", "Electrons come from the same vertex")
+    
+    rdf_charge = rdf_pv.Filter("Sum(Electron_charge == 1) == 2 && Sum(Electron_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative electrons)")
+    
+    #Definition of Z masses for filtering
+    rdf_Z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_4l(Electron_pt, Electron_eta, Electron_phi, Electron_mass, Electron_charge)")
+    rdf_cut = filter_Z_mass(rdf_Z_mass)
+    
+    
+    return rdf_cut
     
     
     
-    
-f= ROOT.TFile.Open("root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/Run2012B_DoubleMuParked.root")
+data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+
+#rdf = ROOT.RDataFrame("Events","root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/Run2012B_DoubleMuParked.root").Range(100000)
+rdf = ROOT.RDataFrame("Events",(data_path + f for f in ["Run2012B_DoubleMuParked.root", "Run2012C_DoubleMuParked.root","Run2012B_DoubleElectron.root", "Run2012C_DoubleElectron.root"]))
 
 
-rdf = ROOT.RDataFrame(f.Events).Range(10000)
+TwoElectronsTwoMuons_rdf = selection_2e2mu(rdf)
+FourElectrons_rdf = selection_4e(rdf)
+FourMuons_rdf = selection_4mu(rdf)
+
+mass_2e2mu = TwoElectronsTwoMuons_rdf.Define("InvariantMass","invariant_mass_2el2mu(Electron_pt, Electron_eta, Electron_phi,"
+                                " Electron_mass, Muon_pt, Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
+                                
+mass_4mu = FourMuons_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt, Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
+
+mass_4e = FourElectrons_rdf.Define("InvariantMass","invariant_mass_4l(Electron_pt, Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
 
 
+Spectrum= mass_2e2mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
+Spectrum4mu= mass_4mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
+Spectrum4e= mass_4e.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
 
-cppcode='''
-        float fourmass(float pt, float eta, float phi, float mass\
-                ,float pt2, float eta2, float phi2, float mass2\
-                ,float pt3, float eta3, float phi3, float mass3\
-                ,float pt4, float eta4, float phi4, float mass4){
-        TLorentzVector p0,p1,p2,p3;
-            p0.SetPtEtaPhiM(pt,eta,phi,mass);
-            p1.SetPtEtaPhiM(pt2,eta2,phi2,mass2);
-            p2.SetPtEtaPhiM(pt3,eta3,phi3,mass3);
-            p3.SetPtEtaPhiM(pt4,eta4,phi4,mass4);
-            return (p0+p1+p2+p3).M();
-         }
+h = Spectrum.GetValue()
+h.Add(Spectrum4mu.GetValue())
+h.Add(Spectrum4e.GetValue())
 
-'''
-
-ROOT.gInterpreter.ProcessLine(cppcode)
-
-mass=twoOCMuonstwoOCElectrons.Define("DiMuonDiElectronMass","fourmass(Muon_pt[mu0],Muon_eta[mu0],Muon_phi[mu0],0.106,Muon_pt[mu1],Muon_eta[mu1],Muon_phi[mu1],0.106,\
-                                                                      Electron_pt[e0],Electron_eta[e0],Electron_phi[e0],0.0005,Electron_pt[e1],Electron_eta[e1],Electron_phi[e1],0.0005)")
-
-Spectrum= mass.Histo1D(("Spectrum","The dimuondielectron mass spectrum in CMS",400,0,150),"DiMuonDiElectronMass")
-Spectrum.Draw()
-
+h.DrawCopy("PE1")
 
 
