@@ -2,11 +2,11 @@ import  ROOT
 import os
 
 
-ROOT.gInterpreter.Declare('#include "prova.h"')
+ROOT.gInterpreter.Declare('#include "python/prova.h"')
 
 
 # Enable multi-threading
-ROOT.gInterpreter.ProcessLine("ROOT::EnableImplicitMT(16)")
+ROOT.gInterpreter.ProcessLine("ROOT::EnableImplicitMT()")
 
 
 #Python functions
@@ -66,12 +66,12 @@ def selection_4mu(rdf):
     rdf_iso = rdf_kin.Filter("All(abs(Muon_pfRelIso04_all)<0.4)", "Require good isolation")
     
     #Definition of 3d impact parameter significance 
-    rdf_3dip = rdf_kin.Define("Muon_3DIP", "sqrt(Muon_dxy*Muon_dxy + Muon_dz*Muon_dz)")
+    rdf_3dip = rdf_iso.Define("Muon_3DIP", "sqrt(Muon_dxy*Muon_dxy + Muon_dz*Muon_dz)")
     rdf_3dips = rdf_3dip.Define("Muon_3DIPS", "Muon_3DIP/sqrt(Muon_dxyErr*Muon_dxyErr + Muon_dzErr*Muon_dzErr)")
     
     rdf_pv = rdf_3dips.Filter("All(Muon_3DIPS<4) && All(abs(Muon_dxy)<0.5) && All(abs(Muon_dz)<1.0)", "Muons come from the same vertex")
     
-    rdf_charge = rdf_pv.Filter("Sum(Muon_charge == 1) == 2 && Sum(Muon_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative muons)")
+    rdf_charge = rdf_pv.Filter("nMuon==4 && Sum(Muon_charge == 1) == 2 && Sum(Muon_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative muons)")
     
     #Definition of Z masses for filtering
     rdf_Z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_4l(Muon_pt, Muon_eta, Muon_phi, Muon_mass, Muon_charge)")
@@ -95,7 +95,7 @@ def selection_4e(rdf):
     
     rdf_pv = rdf_3dips.Filter("All(Electron_3DIPS<4) && All(abs(Electron_dxy)<0.5) && All(abs(Electron_dz)<1.0)", "Electrons come from the same vertex")
     
-    rdf_charge = rdf_pv.Filter("Sum(Electron_charge == 1) == 2 && Sum(Electron_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative electrons)")
+    rdf_charge = rdf_pv.Filter("nElectron==4 && Sum(Electron_charge == 1) == 2 && Sum(Electron_charge == -1) == 2", "Selection for total 0 charge (two positive and two negative electrons)")
     
     #Definition of Z masses for filtering
     rdf_Z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_4l(Electron_pt, Electron_eta, Electron_phi, Electron_mass, Electron_charge)")
@@ -123,6 +123,10 @@ mass_4mu = FourMuons_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt, Muon
 
 mass_4e = FourElectrons_rdf.Define("InvariantMass","invariant_mass_4l(Electron_pt, Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
 
+mass_2e2mu.Snapshot("Events","data/2e2muToZZ.root")
+mass_4mu.Snapshot("Events","data/4muToZZ.root")
+mass_4e.Snapshot("Events","data/4eToZZ.root")
+
 
 Spectrum= mass_2e2mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
 Spectrum4mu= mass_4mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
@@ -133,5 +137,6 @@ h.Add(Spectrum4mu.GetValue())
 h.Add(Spectrum4e.GetValue())
 
 h.DrawCopy("PE1")
+
 
 
