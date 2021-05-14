@@ -1,5 +1,8 @@
-import  ROOT
+import argparse
 import os
+
+import  ROOT
+
 
 
 ROOT.gInterpreter.Declare('#include "python/prova.h"')
@@ -104,31 +107,45 @@ def selection_4e(rdf):
     
     return rdf_cut
     
+
+def raw_to_data_selected( fast_active = True):
+    if ( fast_active == False):
+        
+        data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+        rdf = ROOT.RDataFrame("Events",(data_path + f for f in ["Run2012B_DoubleMuParked.root", "Run2012C_DoubleMuParked.root","Run2012B_DoubleElectron.root", "Run2012C_DoubleElectron.root"]))
+
+
+        TwoElectronsTwoMuons_rdf = selection_2e2mu(rdf)
+        FourElectrons_rdf = selection_4e(rdf)
+        FourMuons_rdf = selection_4mu(rdf)
+
+        mass_2e2mu = TwoElectronsTwoMuons_rdf.Define("InvariantMass","invariant_mass_2el2mu(Electron_pt, Electron_eta, Electron_phi,"
+                                        " Electron_mass, Muon_pt, Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
+                                        
+        mass_4mu = FourMuons_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt, Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
+
+        mass_4e = FourElectrons_rdf.Define("InvariantMass","invariant_mass_4l(Electron_pt, Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
+
+        mass_2e2mu.Snapshot("Events","data/2e2muToZZ.root")
+        mass_4mu.Snapshot("Events","data/4muToZZ.root")
+        mass_4e.Snapshot("Events","data/4eToZZ.root")
+            
+
+
+
+if __name__ == "__main__":
+    
+    parser = argparse.ArgumentParser(description='Program that find the Higgs boson in the decay channel H->ZZ->4l with CMS Open data.')
+    parser.add_argument('--nofast', action='store_const', default=True, const=False, help="No-fast mode take data from raw file and it does the data selection. This saves also data selected in 3 files to data path.")
+    args = parser.parse_args()
     
     
-data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
-
-#rdf = ROOT.RDataFrame("Events","root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/Run2012B_DoubleMuParked.root").Range(100000)
-rdf = ROOT.RDataFrame("Events",(data_path + f for f in ["Run2012B_DoubleMuParked.root", "Run2012C_DoubleMuParked.root","Run2012B_DoubleElectron.root", "Run2012C_DoubleElectron.root"]))
+    raw_to_data_selected(args.nofast)
 
 
-TwoElectronsTwoMuons_rdf = selection_2e2mu(rdf)
-FourElectrons_rdf = selection_4e(rdf)
-FourMuons_rdf = selection_4mu(rdf)
-
-mass_2e2mu = TwoElectronsTwoMuons_rdf.Define("InvariantMass","invariant_mass_2el2mu(Electron_pt, Electron_eta, Electron_phi,"
-                                " Electron_mass, Muon_pt, Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
-                                
-mass_4mu = FourMuons_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt, Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
-
-mass_4e = FourElectrons_rdf.Define("InvariantMass","invariant_mass_4l(Electron_pt, Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
-
-mass_2e2mu.Snapshot("Events","data/2e2muToZZ.root")
-mass_4mu.Snapshot("Events","data/4muToZZ.root")
-mass_4e.Snapshot("Events","data/4eToZZ.root")
 
 
-Spectrum= mass_2e2mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
+'''Spectrum= mass_2e2mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
 Spectrum4mu= mass_4mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
 Spectrum4e= mass_4e.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
 
@@ -136,7 +153,7 @@ h = Spectrum.GetValue()
 h.Add(Spectrum4mu.GetValue())
 h.Add(Spectrum4e.GetValue())
 
-h.DrawCopy("PE1")
+h.DrawCopy("PE1")'''
 
 
 
