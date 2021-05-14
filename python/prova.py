@@ -5,7 +5,7 @@ import  ROOT
 
 
 
-ROOT.gInterpreter.Declare('#include "python/prova.h"')
+ROOT.gInterpreter.Declare('#include "include/prova.h"')
 
 
 # Enable multi-threading
