@@ -162,7 +162,53 @@ def raw_to_data_selected( fast_active = True):
         mass_4mu.Snapshot("Events","data/4muToZZ.root")
         mass_4e.Snapshot("Events","data/4eToZZ.root")
 
+def montecarlo_selection( fast_active = True):
+    '''This is the selection function'''
 
+    if fast_active == False:
+
+        #Background
+        montecarlo_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+        montecarlo_2e2mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo2e2mu.root")
+        montecarlo_4mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4mu.root")
+        montecarlo_4e_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4e.root")
+
+        # Weights
+        luminosity = 11580.0  # Integrated luminosity of the data samples
+        scale_zz_4l = 1.386  #Scale factor for ZZ to four leptons
+
+        cross_sec_zz_2e2mu = 0.18  #Standard Model cross-section for ZZ to 2e2mu
+        number_event_zz_2e2mu = montecarlo_2e2mu_rdf.Count().GetValue()#Num of simul evs ZZ to 2e2mu
+        weight_2e2mu = luminosity * cross_sec_zz_2e2mu * scale_zz_4l / number_event_zz_2e2mu
+
+        cross_sec_zz_4mu = 0.077  #Standard Model cross-section for ZZ to 4mu
+        number_event_zz_4mu = montecarlo_4mu_rdf.Count().GetValue() #Num of simul evs ZZ to 4mu
+        weight_4mu = luminosity * cross_sec_zz_4mu * scale_zz_4l / number_event_zz_4mu
+
+        cross_sec_zz_4e = 0.077  #Standard Model cross-section for ZZ to 4e
+        number_event_zz_4e = montecarlo_4e_rdf.Count().GetValue() #Num of simul evs ZZ to 4e
+        weight_4e = luminosity * cross_sec_zz_4e * scale_zz_4l / number_event_zz_4e
+
+        montecarlo_2e2mu_rdf = selection_2e2mu(montecarlo_2e2mu_rdf)
+        montecarlo_4e_rdf = selection_4e(montecarlo_4e_rdf)
+        montecarlo_4mu_rdf = selection_4mu(montecarlo_4mu_rdf)
+
+        montecarlo_mass_2e2mu = montecarlo_2e2mu_rdf.Define("InvariantMass","invariant_mass_2el2mu \
+        (Electron_pt, Electron_eta, Electron_phi,Electron_mass, Muon_pt, Muon_eta, Muon_phi, \
+        Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")\
+        .Define("weight", "{}".format(weight_2e2mu))
+
+        montecarlo_mass_4mu = montecarlo_4mu_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt,\
+        Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "M of four leptons greater \
+        than 70 GeV").Define("weight", "{}".format(weight_4mu))
+
+        montecarlo_mass_4e = montecarlo_4e_rdf.Define("InvariantMass","invariant_mass_4l(\
+        Electron_pt,Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70",\
+        "Mass of four leptons greater than 70 GeV").Define("weight", "{}".format(weight_4e))
+
+        montecarlo_mass_2e2mu.Snapshot("Events","montecarlo/montecarlo_2e2muToZZ.root")
+        montecarlo_mass_4mu.Snapshot("Events","montecarlo/montecarlo_4muToZZ.root")
+        montecarlo_mass_4e.Snapshot("Events","montecarlo/montecarlo_4eToZZ.root")
 
 
 if __name__ == "__main__":
@@ -171,21 +217,25 @@ if __name__ == "__main__":
     in the decay channel H->ZZ->4l with CMS Open data.')
     parser.add_argument('--nofast', action='store_const', default=True, const=False, \
     help="No-fast mode take data from raw file and it does the data selection. \
-    This saves also data selected in 3 files to data path.")
+    This saves also data selected to data path.")
     args = parser.parse_args()
 
 
     raw_to_data_selected(args.nofast)
 
+    data_rdf = ROOT.RDataFrame("Events",(f for f in ["data/2e2muToZZ.root",\
+        "data/4muToZZ.root","data/4eToZZ.root"]))
 
+    Spectrum= data_rdf.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
+    h = Spectrum.GetValue()
+    h.DrawCopy("PE1")
 
+    montecarlo_selection(args.nofast)
 
-'''Spectrum= mass_2e2mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
-Spectrum4mu= mass_4mu.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
-Spectrum4e= mass_4e.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
+    montecarlo_rdf = ROOT.RDataFrame("Events",(f for f in ["montecarlo/montecarlo_2e2muToZZ.root",\
+        "montecarlo/montecarlo_4muToZZ.root","montecarlo/montecarlo_4eToZZ.root"]))
 
-h = Spectrum.GetValue()
-h.Add(Spectrum4mu.GetValue())
-h.Add(Spectrum4e.GetValue())
-
-h.DrawCopy("PE1")'''
+    montecarlo_spectrum= montecarlo_rdf.Histo1D(("Spectrum","",36,70,180),"InvariantMass","weight")
+    h1 = montecarlo_spectrum.GetValue()
+    h1.DrawCopy("HISTO SAME")
+    
