@@ -6,7 +6,6 @@ import argparse
 
 import  ROOT
 
-
 #Include the header file
 ROOT.gInterpreter.Declare('#include "include/prova.h"')
 
@@ -62,11 +61,11 @@ def selection_2e2mu(rdf):
     rdf_mu_track = rdf_mu_3dips.Filter("All(Muon_3DIPS<4) && All(abs(Muon_dxy)<0.5) && \
     All(abs(Muon_dz)<1.0)", "Muons and electrons come from the same vertex")
 
-    rdf_charge = rdf_mu_track.Filter(" Sum(Electron_charge) \
+    rdf_charge = rdf_mu_track.Filter("Sum(Electron_charge) \
      == 0 && Sum(Muon_charge) == 0", "Selection for total 0 charge and 0 leptons flavour")
 
     #Definition of Z masses for filtering
-    rdf_z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_2el2mu(Electron_pt, \
+    rdf_z_mass = rdf_charge.Define("Z_mass", "calculation_Z_mass_2el2mu(Electron_pt, \
     Electron_eta, Electron_phi, Electron_mass, Muon_pt, Muon_eta, Muon_phi, Muon_mass)")
     rdf_cut = filter_z_mass(rdf_z_mass)
 
@@ -94,7 +93,7 @@ def selection_4mu(rdf):
     Sum(Muon_charge == -1)==2", "Selection for total 0 charge(two positive and two negative muons)")
 
     #Definition of Z masses for filtering
-    rdf_z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_4l\
+    rdf_z_mass = rdf_charge.Define("Z_mass", "calculation_Z_mass_4l\
     (Muon_pt, Muon_eta, Muon_phi, Muon_mass, Muon_charge)")
     rdf_cut = filter_z_mass(rdf_z_mass)
 
@@ -111,20 +110,20 @@ def selection_4e(rdf):
     rdf_iso = rdf_kin.Filter("All(abs(Electron_pfRelIso03_all)<0.40)", "Require good isolation")
 
     #Definition of 3d impact parameter significance for Electrons
-    rdf_3dip = rdf_iso.Define("Electron_3DIP",\
+    rdf_3dip = rdf_iso.Define("Electron_3DIP", \
     "sqrt(Electron_dxy*Electron_dxy + Electron_dz*Electron_dz)")
-    rdf_3dips = rdf_3dip.Define("Electron_3DIPS",\
+    rdf_3dips = rdf_3dip.Define("Electron_3DIPS", \
     "Electron_3DIP/sqrt(Electron_dxyErr*Electron_dxyErr + Electron_dzErr*Electron_dzErr)")
 
     rdf_pv = rdf_3dips.Filter("All(Electron_3DIPS<4) && \
     All(abs(Electron_dxy)<0.5) && All(abs(Electron_dz)<1.0)", "Electrons come from the same vertex")
 
     rdf_charge = rdf_pv.Filter("nElectron==4 && Sum(Electron_charge == 1) == 2 && \
-    Sum(Electron_charge == -1) == 2",\
+    Sum(Electron_charge == -1) == 2", \
     "Selection for total 0 charge (two positive and two negative electrons)")
 
     #Definition of Z masses for filtering
-    rdf_z_mass = rdf_charge.Define("Z_mass","calculation_Z_mass_4l \
+    rdf_z_mass = rdf_charge.Define("Z_mass", "calculation_Z_mass_4l \
     (Electron_pt, Electron_eta, Electron_phi, Electron_mass, Electron_charge)")
     rdf_cut = filter_z_mass(rdf_z_mass)
 
@@ -132,14 +131,14 @@ def selection_4e(rdf):
     return rdf_cut
 
 
-def raw_to_data_selected( fast_active = True):
+def raw_to_data_selected(fast_active=True):
     '''This is the selection function'''
 
     if fast_active == False:
 
         data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
-        rdf = ROOT.RDataFrame("Events",(data_path + f for f in ["Run2012B_DoubleMuParked.root",\
-        "Run2012C_DoubleMuParked.root","Run2012B_DoubleElectron.root", \
+        rdf = ROOT.RDataFrame("Events", (data_path + f for f in ["Run2012B_DoubleMuParked.root",\
+        "Run2012C_DoubleMuParked.root", "Run2012B_DoubleElectron.root", \
         "Run2012C_DoubleElectron.root"]))
 
 
@@ -147,22 +146,22 @@ def raw_to_data_selected( fast_active = True):
         four_electrons_rdf = selection_4e(rdf)
         four_muons_rdf = selection_4mu(rdf)
 
-        mass_2e2mu = two_electrons_two_muons_rdf.Define("InvariantMass","invariant_mass_2el2mu \
-        (Electron_pt, Electron_eta, Electron_phi,Electron_mass, Muon_pt, Muon_eta, Muon_phi, \
+        mass_2e2mu = two_electrons_two_muons_rdf.Define("InvariantMass", "invariant_mass_2el2mu \
+        (Electron_pt, Electron_eta, Electron_phi, Electron_mass, Muon_pt, Muon_eta, Muon_phi, \
         Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")
 
-        mass_4mu = four_muons_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt, Muon_eta, \
+        mass_4mu = four_muons_rdf.Define("InvariantMass", "invariant_mass_4l(Muon_pt, Muon_eta, \
         Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "M of four leptons greater than 70 GeV")
 
-        mass_4e = four_electrons_rdf.Define("InvariantMass","invariant_mass_4l(Electron_pt,\
-        Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70",\
+        mass_4e = four_electrons_rdf.Define("InvariantMass", "invariant_mass_4l(Electron_pt,\
+        Electron_eta, Electron_phi, Electron_mass)").Filter("InvariantMass > 70",\
         "Mass of four leptons greater than 70 GeV")
 
-        mass_2e2mu.Snapshot("Events","data/2e2muToZZ.root")
-        mass_4mu.Snapshot("Events","data/4muToZZ.root")
-        mass_4e.Snapshot("Events","data/4eToZZ.root")
+        mass_2e2mu.Snapshot("Events", "data/2e2muToZZ.root")
+        mass_4mu.Snapshot("Events", "data/4muToZZ.root")
+        mass_4e.Snapshot("Events", "data/4eToZZ.root")
 
-def montecarlo_selection( fast_active = True):
+def montecarlo_selection(fast_active=True):
     '''This is the selection function'''
 
     if fast_active == False:
@@ -193,22 +192,22 @@ def montecarlo_selection( fast_active = True):
         montecarlo_4e_rdf = selection_4e(montecarlo_4e_rdf)
         montecarlo_4mu_rdf = selection_4mu(montecarlo_4mu_rdf)
 
-        montecarlo_mass_2e2mu = montecarlo_2e2mu_rdf.Define("InvariantMass","invariant_mass_2el2mu \
+        montecarlo_mass_2e2mu = montecarlo_2e2mu_rdf.Define("InvariantMass", "invariant_mass_2el2mu\
         (Electron_pt, Electron_eta, Electron_phi,Electron_mass, Muon_pt, Muon_eta, Muon_phi, \
         Muon_mass)").Filter("InvariantMass > 70", "Mass of four leptons greater than 70 GeV")\
         .Define("weight", "{}".format(weight_2e2mu))
 
-        montecarlo_mass_4mu = montecarlo_4mu_rdf.Define("InvariantMass","invariant_mass_4l(Muon_pt,\
+        montecarlo_mass_4mu = montecarlo_4mu_rdf.Define("InvariantMass", "invariant_mass_4l(Muon_pt,\
         Muon_eta, Muon_phi, Muon_mass)").Filter("InvariantMass > 70", "M of four leptons greater \
         than 70 GeV").Define("weight", "{}".format(weight_4mu))
 
-        montecarlo_mass_4e = montecarlo_4e_rdf.Define("InvariantMass","invariant_mass_4l(\
-        Electron_pt,Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70",\
+        montecarlo_mass_4e = montecarlo_4e_rdf.Define("InvariantMass", "invariant_mass_4l(\
+        Electron_pt, Electron_eta, Electron_phi,Electron_mass)").Filter("InvariantMass > 70",\
         "Mass of four leptons greater than 70 GeV").Define("weight", "{}".format(weight_4e))
 
-        montecarlo_mass_2e2mu.Snapshot("Events","montecarlo/montecarlo_2e2muToZZ.root")
-        montecarlo_mass_4mu.Snapshot("Events","montecarlo/montecarlo_4muToZZ.root")
-        montecarlo_mass_4e.Snapshot("Events","montecarlo/montecarlo_4eToZZ.root")
+        montecarlo_mass_2e2mu.Snapshot("Events", "montecarlo/montecarlo_2e2muToZZ.root")
+        montecarlo_mass_4mu.Snapshot("Events", "montecarlo/montecarlo_4muToZZ.root")
+        montecarlo_mass_4e.Snapshot("Events", "montecarlo/montecarlo_4eToZZ.root")
 
 
 if __name__ == "__main__":
@@ -223,19 +222,91 @@ if __name__ == "__main__":
 
     raw_to_data_selected(args.nofast)
 
-    data_rdf = ROOT.RDataFrame("Events",(f for f in ["data/2e2muToZZ.root",\
-        "data/4muToZZ.root","data/4eToZZ.root"]))
+    data_rdf = ROOT.RDataFrame("Events", (f for f in ["data/2e2muToZZ.root",\
+        "data/4muToZZ.root", "data/4eToZZ.root"]))
 
-    Spectrum= data_rdf.Histo1D(("Spectrum","",36,70,180),"InvariantMass")
+    Spectrum = data_rdf.Histo1D(("Spectrum", "", 36, 70, 180), "InvariantMass")
     h = Spectrum.GetValue()
+    h.SetMarkerStyle(8)
+    h.SetLineColor(1)
+    h.GetYaxis().SetTitle("N_{Events}")
+    h.GetYaxis().SetTitleSize(0.07)
+    h.SetStats(0)
+
+    c1 = ROOT.TCanvas()
+    c1.cd()
+
+    upper_pad = ROOT.TPad("upper_pad", "", 0, 0.35, 1, 1)
+    lower_pad = ROOT.TPad("lower_pad", "", 0, 0, 1, 0.35)
+    for p in [upper_pad, lower_pad]:
+        p.SetLeftMargin(0.14)
+        p.SetRightMargin(0.05)
+        p.SetTickx(False)
+        p.SetTicky(False)
+    upper_pad.SetBottomMargin(0)
+    lower_pad.SetTopMargin(0)
+    lower_pad.SetBottomMargin(0.3)
+    upper_pad.Draw()
+    lower_pad.Draw()
+    upper_pad.cd()
+
     h.DrawCopy("PE1")
 
     montecarlo_selection(args.nofast)
 
-    montecarlo_rdf = ROOT.RDataFrame("Events",(f for f in ["montecarlo/montecarlo_2e2muToZZ.root",\
-        "montecarlo/montecarlo_4muToZZ.root","montecarlo/montecarlo_4eToZZ.root"]))
+    montecarlo_rdf = ROOT.RDataFrame("Events", (f for f in ["montecarlo/montecarlo_2e2muToZZ.root",\
+        "montecarlo/montecarlo_4muToZZ.root", "montecarlo/montecarlo_4eToZZ.root"]))
 
-    montecarlo_spectrum= montecarlo_rdf.Histo1D(("Spectrum","",36,70,180),"InvariantMass","weight")
+    montecarlo_spectrum = montecarlo_rdf.Histo1D(("Spectrum", "", 36, 70, 180), "InvariantMass", \
+    "weight")
     h1 = montecarlo_spectrum.GetValue()
+    h1.SetLineColor(1)
+    h1.SetFillColor(7)
+    h1.SetFillStyle(3003)
+
     h1.DrawCopy("HISTO SAME")
-    
+
+    # Add legend
+    legend = ROOT.TLegend(0.72, 0.70, 0.92, 0.88)
+    legend.SetFillColor(0)
+    legend.SetBorderSize(1)
+    legend.SetTextSize(0.03)
+    legend.AddEntry(h, "Data", "PE1")
+    legend.AddEntry(h1, "ZZ montecarlo", "f")
+    legend.Draw()
+
+    lower_pad.cd()
+    ratioplot = h.Clone()
+    ratioplot.Add(h1, -1)
+    for i in range(1, h.GetNbinsX()):
+        ratioplot.SetBinError(i, h.GetBinError(i))
+    ratioplot.GetXaxis().SetTitle("m_{4l} (GeV)")
+    ratioplot.GetXaxis().SetTitleSize(0.12)
+    ratioplot.GetXaxis().SetLabelSize(0.08)
+    ratioplot.GetYaxis().SetLabelSize(0.07)
+    ratioplot.GetYaxis().SetTitle("Data - Bkg.")
+    ratioplot.GetYaxis().SetTitleSize(0.09)
+    ratioplot.GetYaxis().SetTitleOffset(0.4)
+
+    ROOT.gStyle.SetOptFit(1)
+    ROOT.gStyle.SetOptStat(11)
+
+    ratioplot.Draw("E1 SAME")
+
+    fit = ROOT.TF1("fit", "gaus", 70, 180)
+    fit.SetParNames("const", "mean", "sigma")
+    fit.SetParameters(5., 125., 2.)
+    ratioplot.Fit("fit", "L+", "", 120, 140)
+    print(fit.GetChisquare(), fit.GetNDF())
+    fit.Draw("SAME")
+
+    upper_pad.cd()
+
+    text = ROOT.TLatex()
+    text.SetNDC()
+    text.SetTextFont(72)
+    text.SetTextSize(0.06)
+    text.DrawLatex(0.38, 0.84, "CMS Open Data")
+    text.SetTextFont(42)
+    text.SetTextSize(0.05)
+    text.DrawLatex(0.38, 0.78, "#sqrt{s} = 8 TeV, L_{int} = 11.6 fb^{-1}")
