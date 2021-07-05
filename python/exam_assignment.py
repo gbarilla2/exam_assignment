@@ -295,7 +295,7 @@ if __name__ == "__main__":
 
     fit = ROOT.TF1("fit", "gaus", 70, 180)
     fit.SetParNames("const", "mean", "sigma")
-    fit.SetParameters(5., 125., 2.)
+    fit.SetParameters(6., 125., 2.)
     ratioplot.Fit("fit", "L+", "", 120, 140)
     print(fit.GetChisquare(), fit.GetNDF())
     fit.Draw("SAME")
