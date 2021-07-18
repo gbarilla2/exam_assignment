@@ -131,16 +131,20 @@ def selection_4e(rdf):
     return rdf_cut
 
 
-def raw_to_data_selected(fast_active=True):
+def raw_to_data_selected(fast_active=True , local_active=True):
     '''This is the selection function'''
 
     if fast_active == False:
 
-        data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
-        rdf = ROOT.RDataFrame("Events", (data_path + f for f in ["Run2012B_DoubleMuParked.root",\
-        "Run2012C_DoubleMuParked.root", "Run2012B_DoubleElectron.root", \
-        "Run2012C_DoubleElectron.root"]))
-
+        if local_active == False:
+            rdf = ROOT.RDataFrame("Events", "dati.root")
+        else:
+            data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+            rdf = ROOT.RDataFrame("Events", (data_path + f for f in ["Run2012B_DoubleMuParked.root",\
+            "Run2012C_DoubleMuParked.root", "Run2012B_DoubleElectron.root", \
+            "Run2012C_DoubleElectron.root"]))
+        
+        
 
         two_electrons_two_muons_rdf = selection_2e2mu(rdf)
         four_electrons_rdf = selection_4e(rdf)
@@ -161,16 +165,22 @@ def raw_to_data_selected(fast_active=True):
         mass_4mu.Snapshot("Events", "data/4muToZZ.root")
         mass_4e.Snapshot("Events", "data/4eToZZ.root")
 
-def montecarlo_selection(fast_active=True):
+def montecarlo_selection(fast_active=True , local_active=True):
     '''This is the selection function'''
 
     if fast_active == False:
 
         #Background
-        montecarlo_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
-        montecarlo_2e2mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo2e2mu.root")
-        montecarlo_4mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4mu.root")
-        montecarlo_4e_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4e.root")
+        if local_active == False:
+            montecarlo_2e2mu_rdf = ROOT.RDataFrame("Events", "monte_2e2mu.root")
+            montecarlo_4mu_rdf = ROOT.RDataFrame("Events", "monte_4mu.root")
+            montecarlo_4e_rdf = ROOT.RDataFrame("Events", "monte_4e.root")
+        else:
+            montecarlo_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+            montecarlo_2e2mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo2e2mu.root")
+            montecarlo_4mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4mu.root")
+            montecarlo_4e_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4e.root")
+
 
         # Weights
         luminosity = 11580.0  # Integrated luminosity of the data samples
@@ -209,18 +219,24 @@ def montecarlo_selection(fast_active=True):
         montecarlo_mass_4mu.Snapshot("Events", "montecarlo/montecarlo_4muToZZ.root")
         montecarlo_mass_4e.Snapshot("Events", "montecarlo/montecarlo_4eToZZ.root")
 
+timer = ROOT.TStopwatch()
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Program that find the Higgs boson \
     in the decay channel H->ZZ->4l with CMS Open data.')
-    parser.add_argument('--nofast', action='store_const', default=True, const=False, \
+    parser.add_argument('-nofast', action='store_const', default=True, const=False, \
     help="No-fast mode take data from raw file and it does the data selection. \
     This saves also data selected to data path.")
+    parser.add_argument('-local', action='store_const', default=True, const=False, \
+    help="Local mode take data from raw file in local and it does the data selection.")
+    parser.add_argument('-time', action='store_const', default=True, const=False, \
+    help="Print the execution time.")
     args = parser.parse_args()
 
+    if(args.time==False):    timer.Start()
 
-    raw_to_data_selected(args.nofast)
+    raw_to_data_selected(args.nofast,args.local)
 
     data_rdf = ROOT.RDataFrame("Events", (f for f in ["data/2e2muToZZ.root",\
         "data/4muToZZ.root", "data/4eToZZ.root"]))
@@ -252,7 +268,7 @@ if __name__ == "__main__":
 
     h.DrawCopy("PE1")
 
-    montecarlo_selection(args.nofast)
+    montecarlo_selection(args.nofast,args.local)
 
     montecarlo_rdf = ROOT.RDataFrame("Events", (f for f in ["montecarlo/montecarlo_2e2muToZZ.root",\
         "montecarlo/montecarlo_4muToZZ.root", "montecarlo/montecarlo_4eToZZ.root"]))
@@ -310,3 +326,7 @@ if __name__ == "__main__":
     text.SetTextFont(42)
     text.SetTextSize(0.05)
     text.DrawLatex(0.38, 0.78, "#sqrt{s} = 8 TeV, L_{int} = 11.6 fb^{-1}")
+    
+    if(args.time==False):
+        timer.Stop()
+        print("Execution time {:0.2f} m".format(timer.RealTime()/60))
