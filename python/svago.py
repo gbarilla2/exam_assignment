@@ -23,9 +23,14 @@ timer = ROOT.TStopwatch()
 
 if __name__ == "__main__":
 
+    
     data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
     rdf = ROOT.RDataFrame("Events", data_path + "Run2012C_DoubleMuParked.root")
-
+    
+    '''Too big for memory
+    rdf = ROOT.RDataFrame("Events", "dati.root")
+    '''
+    
     timer.Start()
     rdf_4e = rdf.Filter("nElectron >= 4", "First selection with at least 4 electrons")\
                 .Histo1D(("Prova", "", 500, 0, 500), "Electron_pt")            
