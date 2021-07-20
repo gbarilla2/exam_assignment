@@ -296,26 +296,40 @@ if __name__ == "__main__":
     ratioplot.Add(h1, -1)
     for i in range(1, h.GetNbinsX()):
         ratioplot.SetBinError(i, h.GetBinError(i))
-    ratioplot.GetXaxis().SetTitle("m_{4l} (GeV)")
-    ratioplot.GetXaxis().SetTitleSize(0.12)
-    ratioplot.GetXaxis().SetLabelSize(0.08)
-    ratioplot.GetYaxis().SetLabelSize(0.07)
-    ratioplot.GetYaxis().SetTitle("Data - Bkg.")
-    ratioplot.GetYaxis().SetTitleSize(0.09)
-    ratioplot.GetYaxis().SetTitleOffset(0.4)
-
-    ROOT.gStyle.SetOptFit(1)
-    ROOT.gStyle.SetOptStat(11)
-
-    ratioplot.Draw("E1 SAME")
-
-    fit = ROOT.TF1("fit", "gaus", 70, 180)
-    fit.SetParNames("const", "mean", "sigma")
-    fit.SetParameters(6., 125., 2.)
-    ratioplot.Fit("fit", "L+", "", 120, 140)
-    print(fit.GetChisquare(), fit.GetNDF())
-    fit.Draw("SAME")
-
+    
+    #Create observables
+    x = ROOT.RooRealVar("x", "x", 70, 180)
+    x.setRange("signal",120,130)
+    #Create Gaussian
+    mean = ROOT.RooRealVar("mean", "mean of gaussian", 1, 120, 130)
+    sigma = ROOT.RooRealVar("sigma", "width of gaussian", 1, 0.01, 10)
+    gauss = ROOT.RooGaussian("gauss", "gaussian PDF", x, mean, sigma)
+    #Create a binned dataset that imports contents of ratioplot hist and associates
+    #its contents to observable 'x'
+    dh = ROOT.RooDataHist("dh", "dh", ROOT.RooArgList(x), ROOT.RooFit.Import(ratioplot))
+    # Fit a Gaussian p.d.f to the data
+    gauss.fitTo(dh,  ROOT.RooFit.Save(True), ROOT.RooFit.Range("signal"))
+    #Now plot the data and the fit result
+    xframe = x.frame()
+    dh.plotOn(xframe)
+    gauss.plotOn(xframe, ROOT.RooFit.Range(70, 180), ROOT.RooFit.LineColor(2), ROOT.RooFit.LineStyle(9))
+    gauss.plotOn(xframe)
+    #Optional
+    gauss.paramOn(xframe, ROOT.RooFit.Layout(0.8,0.9), ROOT.RooFit.Format("NEU",1))
+    xframe.SetTitle("")
+    xframe.GetXaxis().SetTitle("m_{4l} (GeV)")
+    xframe.GetXaxis().SetTitleSize(0.12)
+    xframe.GetXaxis().SetLabelSize(0.08)
+    xframe.GetYaxis().SetLabelSize(0.07)
+    xframe.GetYaxis().SetTitle("Data - Bkg.")
+    xframe.GetYaxis().SetTitleSize(0.09)
+    xframe.GetYaxis().SetTitleOffset(0.4)
+    xframe.Draw()
+    #Print values of mean and sigma (that now reflect fitted values and
+    #errors)
+    mean.Print()
+    sigma.Print()
+    
     upper_pad.cd()
 
     text = ROOT.TLatex()
@@ -326,7 +340,8 @@ if __name__ == "__main__":
     text.SetTextFont(42)
     text.SetTextSize(0.05)
     text.DrawLatex(0.38, 0.78, "#sqrt{s} = 8 TeV, L_{int} = 11.6 fb^{-1}")
-    
+
     if(args.time==False):
         timer.Stop()
         print("Execution time {:0.2f} m".format(timer.RealTime()/60))
+
