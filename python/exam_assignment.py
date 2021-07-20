@@ -7,7 +7,7 @@ import argparse
 import  ROOT
 
 #Include the header file
-ROOT.gInterpreter.Declare('#include "include/prova.h"')
+ROOT.gInterpreter.Declare('#include "include/exam_assignment.h"')
 
 
 # Enable multi-threading
