@@ -291,6 +291,15 @@ if __name__ == "__main__":
     legend.AddEntry(h1, "ZZ montecarlo", "f")
     legend.Draw()
 
+    text = ROOT.TLatex()
+    text.SetNDC()
+    text.SetTextFont(72)
+    text.SetTextSize(0.06)
+    text.DrawLatex(0.38, 0.84, "CMS Open Data")
+    text.SetTextFont(42)
+    text.SetTextSize(0.05)
+    text.DrawLatex(0.38, 0.78, "#sqrt{s} = 8 TeV, L_{int} = 11.6 fb^{-1}")
+
     lower_pad.cd()
     ratioplot = h.Clone()
     ratioplot.Add(h1, -1)
@@ -329,17 +338,6 @@ if __name__ == "__main__":
     #errors)
     mean.Print()
     sigma.Print()
-    
-    upper_pad.cd()
-
-    text = ROOT.TLatex()
-    text.SetNDC()
-    text.SetTextFont(72)
-    text.SetTextSize(0.06)
-    text.DrawLatex(0.38, 0.84, "CMS Open Data")
-    text.SetTextFont(42)
-    text.SetTextSize(0.05)
-    text.DrawLatex(0.38, 0.78, "#sqrt{s} = 8 TeV, L_{int} = 11.6 fb^{-1}")
 
     if(args.time==False):
         timer.Stop()
