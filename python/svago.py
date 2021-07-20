@@ -27,7 +27,7 @@ if __name__ == "__main__":
     data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
     rdf = ROOT.RDataFrame("Events", data_path + "Run2012C_DoubleMuParked.root")
     
-    '''Too big for memory
+    '''Too big for memory (numpy)
     rdf = ROOT.RDataFrame("Events", "dati.root")
     '''
     
