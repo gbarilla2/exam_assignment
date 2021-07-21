@@ -19,9 +19,11 @@ float invariant_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f e
 	return (p1 + p2 + p3 + p4).M();
     }
 
-//This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass
-RVec<float> calculation_Z_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta,
-                                                rvec_f mu_phi, rvec_f mu_mass)
+//This function return the mass of Z bosons ordered through the lepton pair that 
+//closest to Z mass
+RVec<float> calculation_Z_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi,
+									  rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta,
+                                      rvec_f mu_phi, rvec_f mu_mass)
     {
 	RVec<float> Z_mass_vec{-1.,-1.};
     

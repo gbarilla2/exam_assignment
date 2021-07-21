@@ -33,7 +33,7 @@ def filter_z_mass(rdf):
 def selection_2e2mu(rdf):
     '''This function select events with e+ e- mu+ mu-'''
 
-    rdf_2e2mu = rdf.Filter("nElectron >= 2 && nMuon >= 2",\
+    rdf_2e2mu = rdf.Filter("nElectron == 2 && nMuon == 2",\
     "First selection with at least 2 electrons and 2 muons")
 
     rdf_pt = rdf_2e2mu.Filter("All(Muon_pt>5) && All(Electron_pt>7)", "Pt cuts")
@@ -75,7 +75,7 @@ def selection_2e2mu(rdf):
 def selection_4mu(rdf):
     '''This function select events with 2mu+ 2mu-'''
 
-    rdf_4mu = rdf.Filter("nMuon >= 4", "First selection with at least 4 muons")
+    rdf_4mu = rdf.Filter("nMuon == 4", "First selection with 4 muons")
 
     rdf_kin = rdf_4mu.Filter("All(Muon_pt>5) && All(abs(Muon_eta)<2.4)", "Kinematics cuts")
 
@@ -89,7 +89,7 @@ def selection_4mu(rdf):
     rdf_pv = rdf_3dips.Filter("All(Muon_3DIPS<4) && \
     All(abs(Muon_dxy)<0.5) && All(abs(Muon_dz)<1.0)", "Muons come from the same vertex")
 
-    rdf_charge = rdf_pv.Filter("nMuon==4 && Sum(Muon_charge == 1) == 2 && \
+    rdf_charge = rdf_pv.Filter("Sum(Muon_charge == 1) == 2 && \
     Sum(Muon_charge == -1)==2", "Selection for total 0 charge(two positive and two negative muons)")
 
     #Definition of Z masses for filtering
@@ -103,7 +103,7 @@ def selection_4mu(rdf):
 def selection_4e(rdf):
     '''This function select events with 2e+ 2e-'''
 
-    rdf_4e = rdf.Filter("nElectron >= 4", "First selection with at least 4 electrons")
+    rdf_4e = rdf.Filter("nElectron == 4", "First selection with 4 electrons")
 
     rdf_kin = rdf_4e.Filter("All(Electron_pt>7) && All(abs(Electron_eta)<2.5)", "Kinematics cuts")
 
@@ -118,7 +118,7 @@ def selection_4e(rdf):
     rdf_pv = rdf_3dips.Filter("All(Electron_3DIPS<4) && \
     All(abs(Electron_dxy)<0.5) && All(abs(Electron_dz)<1.0)", "Electrons come from the same vertex")
 
-    rdf_charge = rdf_pv.Filter("nElectron==4 && Sum(Electron_charge == 1) == 2 && \
+    rdf_charge = rdf_pv.Filter("Sum(Electron_charge == 1) == 2 && \
     Sum(Electron_charge == -1) == 2", \
     "Selection for total 0 charge (two positive and two negative electrons)")
 
