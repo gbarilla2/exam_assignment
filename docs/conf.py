@@ -17,7 +17,7 @@ package_name = 'higgs_to4l_analysis'
 package_root = os.path.abspath('..')
 sys.path.insert(0, package_root)
 sys.path.insert(0, os.path.join(package_root, package_name))
-sys.path.append(os.path.abspath("."))  # To import dummy modules
+sys.path.append(os.path.abspath("."))  
 #import os
 #import sys
 #sys.path.insert(0, os.path.abspath('.'))
