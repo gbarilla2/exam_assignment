@@ -1,4 +1,4 @@
-higgs\_to4l\_analysis package
+higgs_to4l_analysis module
 =============================
 
 .. automodule:: higgs_to4l_analysis

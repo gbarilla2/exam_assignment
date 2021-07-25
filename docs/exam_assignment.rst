@@ -1,5 +1,5 @@
-Header file docs
-================
+exam_assignment.h
+=================
 
 
 .. doxygenfunction:: invariant_mass_2el2mu

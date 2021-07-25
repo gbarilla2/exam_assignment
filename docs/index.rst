@@ -17,7 +17,6 @@ Welcome to higgs_to4l_analysis's documentation!
    :caption: API reference
    
    higgs_to4l_analysis
-   core
    exam_assignment      
 
 Indices and tables
