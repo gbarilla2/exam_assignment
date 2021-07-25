@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="exam__assignment_8h" kind="file" language="C++">
+    <compoundname>exam_assignment.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="yes">Math/Vector4D.h</includes>
+    <includes local="yes">ROOT/RVec.hxx</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/giovanni/workspace/exam_assignment/include/exam_assignment.h</label>
+        <link refid="exam__assignment_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Math/Vector4D.h</label>
+      </node>
+      <node id="4">
+        <label>ROOT/RVec.hxx</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceROOT_1_1VecOps">ROOT::VecOps</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" prot="public" static="no">
+        <type>const RVec&lt; float &gt; &amp;</type>
+        <definition>using rvec_f =  const RVec&lt;float&gt; &amp;</definition>
+        <argsstring></argsstring>
+        <name>rvec_f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" line="6" column="1" bodyfile="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" prot="public" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float Z_mass</definition>
+        <argsstring></argsstring>
+        <name>Z_mass</name>
+        <initializer>= 91.19</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" line="7" column="13" bodyfile="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="exam__assignment_8h_1a361dd468b3c2d21c65fc96a3c9a35582" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float invariant_mass_2el2mu</definition>
+        <argsstring>(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta, rvec_f mu_phi, rvec_f mu_mass)</argsstring>
+        <name>invariant_mass_2el2mu</name>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_pt</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_eta</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_phi</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_mass</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_pt</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_eta</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_phi</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_mass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function return the invariant mass of 2e 2mu </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" line="11" column="7" bodyfile="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" bodystart="11" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="exam__assignment_8h_1afcd3e5b395a6349c21bec53015be4506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>RVec&lt; float &gt;</type>
+        <definition>RVec&lt;float&gt; calculation_Z_mass_2el2mu</definition>
+        <argsstring>(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta, rvec_f mu_phi, rvec_f mu_mass)</argsstring>
+        <name>calculation_Z_mass_2el2mu</name>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_pt</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_eta</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_phi</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>el_mass</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_pt</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_eta</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_phi</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mu_mass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" line="24" column="6" bodyfile="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" bodystart="24" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="exam__assignment_8h_1aafdcde7673d12c7e41f3b6c4e9e8616c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float invariant_mass_4l</definition>
+        <argsstring>(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass)</argsstring>
+        <name>invariant_mass_4l</name>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>pt</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>eta</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function return the invariant mass of 4l </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" line="65" column="7" bodyfile="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" bodystart="65" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="exam__assignment_8h_1a97276c943d043a9716cbeeb223545556" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>RVec&lt; float &gt;</type>
+        <definition>RVec&lt;float&gt; calculation_Z_mass_4l</definition>
+        <argsstring>(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass, rvec_f charge)</argsstring>
+        <name>calculation_Z_mass_4l</name>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>pt</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>eta</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref></type>
+          <declname>charge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>This save the positive and negative index</para>
+<para>This save the Z masses possible combination with two lepton of the opposite charge</para>
+<para>This give the index of the best mass for Z</para>
+        </inbodydescription>
+        <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" line="77" column="6" bodyfile="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h" bodystart="77" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Math/Vector4D.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ROOT/RVec.hxx&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">ROOT::VecOps;<sp/></highlight></codeline>
+<codeline lineno="6" refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>=<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>RVec&lt;float&gt;<sp/>&amp;;</highlight></codeline>
+<codeline lineno="7" refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref><sp/>=<sp/>91.19;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="exam__assignment_8h_1a361dd468b3c2d21c65fc96a3c9a35582" refkind="member"><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exam__assignment_8h_1a361dd468b3c2d21c65fc96a3c9a35582" kindref="member">invariant_mass_2el2mu</ref>(<ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_pt,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_eta,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_phi,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_mass,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_pt,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_eta,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_phi,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_mass)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p1(mu_pt[0],<sp/>mu_eta[0],<sp/>mu_phi[0],<sp/>mu_mass[0]);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p2(mu_pt[1],<sp/>mu_eta[1],<sp/>mu_phi[1],<sp/>mu_mass[1]);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p3(el_pt[0],<sp/>el_eta[0],<sp/>el_phi[0],<sp/>el_mass[0]);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p4(el_pt[1],<sp/>el_eta[1],<sp/>el_phi[1],<sp/>el_mass[1]);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(p1<sp/>+<sp/>p2<sp/>+<sp/>p3<sp/>+<sp/>p4).M();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="exam__assignment_8h_1afcd3e5b395a6349c21bec53015be4506" refkind="member"><highlight class="normal">RVec&lt;float&gt;<sp/><ref refid="exam__assignment_8h_1afcd3e5b395a6349c21bec53015be4506" kindref="member">calculation_Z_mass_2el2mu</ref>(<ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_pt,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_eta,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_phi,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>el_mass,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_pt,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_eta,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_phi,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mu_mass)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;float&gt;<sp/>Z_mass_vec{-1.,-1.};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p1(mu_pt[0],<sp/>mu_eta[0],<sp/>mu_phi[0],<sp/>mu_mass[0]);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p2(mu_pt[1],<sp/>mu_eta[1],<sp/>mu_phi[1],<sp/>mu_mass[1]);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p3(el_pt[0],<sp/>el_eta[0],<sp/>el_phi[0],<sp/>el_mass[0]);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p4(el_pt[1],<sp/>el_eta[1],<sp/>el_phi[1],<sp/>el_mass[1]);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Muons_m<sp/>=<sp/>(p1+p2).M();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Electrons_m<sp/>=<sp/>(p3+p4).M();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mu_DR<sp/>=<sp/>DeltaR(mu_eta[0],<sp/>mu_eta[1],<sp/>mu_phi[0],<sp/>mu_phi[1]);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>el_DR<sp/>=<sp/>DeltaR(el_eta[0],<sp/>el_eta[1],<sp/>el_phi[0],<sp/>el_phi[1]);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mu_pt_temp<sp/>=<sp/>Reverse(Sort(mu_pt));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>el_pt_temp<sp/>=<sp/>Reverse(Sort(el_pt));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(mu_DR<sp/>&gt;<sp/>0.02<sp/>&amp;&amp;<sp/>el_DR<sp/>&gt;<sp/>0.02){</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::abs(Muons_m-<ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref>)&lt;std::abs(Electrons_m-<ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref>)){</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(mu_pt_temp[0]<sp/>&gt;<sp/>20<sp/>&amp;&amp;<sp/>mu_pt_temp[1]<sp/>&gt;<sp/>10){</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[1]<sp/>=<sp/>Electrons_m;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[0]<sp/>=<sp/>Muons_m;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(el_pt_temp[0]<sp/>&gt;<sp/>20<sp/>&amp;&amp;<sp/>el_pt_temp[1]<sp/>&gt;<sp/>10){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[0]<sp/>=<sp/>Electrons_m;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[1]<sp/>=<sp/>Muons_m;<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Z_mass_vec;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="exam__assignment_8h_1aafdcde7673d12c7e41f3b6c4e9e8616c" refkind="member"><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exam__assignment_8h_1aafdcde7673d12c7e41f3b6c4e9e8616c" kindref="member">invariant_mass_4l</ref>(<ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>pt,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>eta,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>phi,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mass)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p1(pt[0],<sp/>eta[0],<sp/>phi[0],<sp/>mass[0]);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p2(pt[1],<sp/>eta[1],<sp/>phi[1],<sp/>mass[1]);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p3(pt[2],<sp/>eta[2],<sp/>phi[2],<sp/>mass[2]);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p4(pt[3],<sp/>eta[3],<sp/>phi[3],<sp/>mass[3]);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(p1+p2+p3+p4).M();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77" refid="exam__assignment_8h_1a97276c943d043a9716cbeeb223545556" refkind="member"><highlight class="normal">RVec&lt;float&gt;<sp/><ref refid="exam__assignment_8h_1a97276c943d043a9716cbeeb223545556" kindref="member">calculation_Z_mass_4l</ref>(<ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>pt,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>eta,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>phi,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>mass,<sp/><ref refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kindref="member">rvec_f</ref><sp/>charge)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;float&gt;<sp/>Z_mass_vec{-1,-1};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;int&gt;<sp/>pos_charge{-1,-1};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;int&gt;<sp/>neg_charge{-1,-1};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;float&gt;<sp/>Z_masses_temp(4);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;float&gt;<sp/>temp_masses(4);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;float&gt;<sp/>DR(4);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0,<sp/>j=0,<sp/>index_min=-1;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p1(pt[0],<sp/>eta[0],<sp/>phi[0],<sp/>mass[0]);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p2(pt[1],<sp/>eta[1],<sp/>phi[1],<sp/>mass[1]);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p3(pt[2],<sp/>eta[2],<sp/>phi[2],<sp/>mass[2]);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>ROOT::Math::PtEtaPhiMVector<sp/>p4(pt[3],<sp/>eta[3],<sp/>phi[3],<sp/>mass[3]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>RVec&lt;ROOT::Math::PtEtaPhiMVector&gt;<sp/>p{p1,p2,p3,p4};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k=0;<sp/>k&lt;4<sp/>;k++)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>charge[k]<sp/>==<sp/>1<sp/>){</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos_charge[i]=k;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>neg_charge[j]=k;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j++;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>Z_masses_temp[0]=(p[pos_charge[0]]+p[neg_charge[0]]).M();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>Z_masses_temp[1]=(p[pos_charge[1]]+p[neg_charge[1]]).M();<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>Z_masses_temp[2]=(p[pos_charge[0]]+p[neg_charge[1]]).M();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>Z_masses_temp[3]=(p[pos_charge[1]]+p[neg_charge[0]]).M();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>DR[0]=DeltaR(eta[pos_charge[0]],<sp/>eta[neg_charge[0]],<sp/>phi[pos_charge[0]],<sp/>phi[neg_charge[0]]);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>DR[1]=DeltaR(eta[pos_charge[1]],<sp/>eta[neg_charge[1]],<sp/>phi[pos_charge[1]],<sp/>phi[neg_charge[1]]);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>DR[2]=DeltaR(eta[pos_charge[0]],<sp/>eta[neg_charge[1]],<sp/>phi[pos_charge[0]],<sp/>phi[neg_charge[1]]);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>DR[3]=DeltaR(eta[pos_charge[1]],<sp/>eta[neg_charge[0]],<sp/>phi[pos_charge[1]],<sp/>phi[neg_charge[0]]);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>temp_masses[0]=std::abs(Z_masses_temp[0]-<ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>temp_masses[1]=std::abs(Z_masses_temp[1]-<ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>temp_masses[2]=std::abs(Z_masses_temp[2]-<ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>temp_masses[3]=std::abs(Z_masses_temp[3]-<ref refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kindref="member">Z_mass</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>index_min<sp/>=<sp/>ArgMin(temp_masses);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(All(DR&gt;0.02)){</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(index_min<sp/>==<sp/>0<sp/>||<sp/>index_min<sp/>==<sp/>1){</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[0]<sp/>=<sp/>Z_masses_temp[index_min];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[1]<sp/>=<sp/>Z_masses_temp[(index_min+1)%2];</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[0]<sp/>=<sp/>Z_masses_temp[index_min];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Z_mass_vec[1]<sp/>=<sp/>Z_masses_temp[(index_min+1)%2+2];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Z_mass_vec;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+    </programlisting>
+    <location file="/home/giovanni/workspace/exam_assignment/include/exam_assignment.h"/>
+  </compounddef>
+</doxygen>

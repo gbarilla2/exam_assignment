@@ -1,0 +1,77 @@
+\hypertarget{exam__assignment_8h}{}\doxysection{/home/giovanni/workspace/exam\+\_\+assignment/include/exam\+\_\+assignment.h File Reference}
+\label{exam__assignment_8h}\index{/home/giovanni/workspace/exam\_assignment/include/exam\_assignment.h@{/home/giovanni/workspace/exam\_assignment/include/exam\_assignment.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Math/\+Vector4\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}R\+O\+O\+T/\+R\+Vec.\+hxx\char`\"{}}\newline
+Include dependency graph for exam\+\_\+assignment.\+h\+:
+% FIG 0
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} = const R\+Vec$<$ float $>$ \&
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{exam__assignment_8h_a361dd468b3c2d21c65fc96a3c9a35582}{invariant\+\_\+mass\+\_\+2el2mu}} (\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+pt, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+eta, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+phi, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+mass, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+pt, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+eta, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+phi, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+mass)
+\item 
+R\+Vec$<$ float $>$ \mbox{\hyperlink{exam__assignment_8h_afcd3e5b395a6349c21bec53015be4506}{calculation\+\_\+\+Z\+\_\+mass\+\_\+2el2mu}} (\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+pt, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+eta, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+phi, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} el\+\_\+mass, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+pt, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+eta, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+phi, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mu\+\_\+mass)
+\item 
+float \mbox{\hyperlink{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}{invariant\+\_\+mass\+\_\+4l}} (\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} pt, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} eta, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} phi, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mass)
+\item 
+R\+Vec$<$ float $>$ \mbox{\hyperlink{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}{calculation\+\_\+\+Z\+\_\+mass\+\_\+4l}} (\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} pt, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} eta, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} phi, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} mass, \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} charge)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{exam__assignment_8h_a9b5c2a0b2a74cfbe921c7ef04b0967cc}{Z\+\_\+mass}} = 91.\+19
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}\label{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}} 
+\index{exam\_assignment.h@{exam\_assignment.h}!rvec\_f@{rvec\_f}}
+\index{rvec\_f@{rvec\_f}!exam\_assignment.h@{exam\_assignment.h}}
+\doxysubsubsection{\texorpdfstring{rvec\_f}{rvec\_f}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}} =  const R\+Vec$<$float$>$ \&}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{exam__assignment_8h_afcd3e5b395a6349c21bec53015be4506}\label{exam__assignment_8h_afcd3e5b395a6349c21bec53015be4506}} 
+\index{exam\_assignment.h@{exam\_assignment.h}!calculation\_Z\_mass\_2el2mu@{calculation\_Z\_mass\_2el2mu}}
+\index{calculation\_Z\_mass\_2el2mu@{calculation\_Z\_mass\_2el2mu}!exam\_assignment.h@{exam\_assignment.h}}
+\doxysubsubsection{\texorpdfstring{calculation\_Z\_mass\_2el2mu()}{calculation\_Z\_mass\_2el2mu()}}
+{\footnotesize\ttfamily R\+Vec$<$float$>$ calculation\+\_\+\+Z\+\_\+mass\+\_\+2el2mu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+mass,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+mass }\end{DoxyParamCaption})}
+
+This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass \mbox{\Hypertarget{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}\label{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}} 
+\index{exam\_assignment.h@{exam\_assignment.h}!calculation\_Z\_mass\_4l@{calculation\_Z\_mass\_4l}}
+\index{calculation\_Z\_mass\_4l@{calculation\_Z\_mass\_4l}!exam\_assignment.h@{exam\_assignment.h}}
+\doxysubsubsection{\texorpdfstring{calculation\_Z\_mass\_4l()}{calculation\_Z\_mass\_4l()}}
+{\footnotesize\ttfamily R\+Vec$<$float$>$ calculation\+\_\+\+Z\+\_\+mass\+\_\+4l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mass,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{charge }\end{DoxyParamCaption})}
+
+This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass This save the positive and negative index
+
+This save the Z masses possible combination with two lepton of the opposite charge
+
+This give the index of the best mass for Z\mbox{\Hypertarget{exam__assignment_8h_a361dd468b3c2d21c65fc96a3c9a35582}\label{exam__assignment_8h_a361dd468b3c2d21c65fc96a3c9a35582}} 
+\index{exam\_assignment.h@{exam\_assignment.h}!invariant\_mass\_2el2mu@{invariant\_mass\_2el2mu}}
+\index{invariant\_mass\_2el2mu@{invariant\_mass\_2el2mu}!exam\_assignment.h@{exam\_assignment.h}}
+\doxysubsubsection{\texorpdfstring{invariant\_mass\_2el2mu()}{invariant\_mass\_2el2mu()}}
+{\footnotesize\ttfamily float invariant\+\_\+mass\+\_\+2el2mu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+mass,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+mass }\end{DoxyParamCaption})}
+
+This function return the invariant mass of 2e 2mu \mbox{\Hypertarget{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}\label{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}} 
+\index{exam\_assignment.h@{exam\_assignment.h}!invariant\_mass\_4l@{invariant\_mass\_4l}}
+\index{invariant\_mass\_4l@{invariant\_mass\_4l}!exam\_assignment.h@{exam\_assignment.h}}
+\doxysubsubsection{\texorpdfstring{invariant\_mass\_4l()}{invariant\_mass\_4l()}}
+{\footnotesize\ttfamily float invariant\+\_\+mass\+\_\+4l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mass }\end{DoxyParamCaption})}
+
+This function return the invariant mass of 4l 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{exam__assignment_8h_a9b5c2a0b2a74cfbe921c7ef04b0967cc}\label{exam__assignment_8h_a9b5c2a0b2a74cfbe921c7ef04b0967cc}} 
+\index{exam\_assignment.h@{exam\_assignment.h}!Z\_mass@{Z\_mass}}
+\index{Z\_mass@{Z\_mass}!exam\_assignment.h@{exam\_assignment.h}}
+\doxysubsubsection{\texorpdfstring{Z\_mass}{Z\_mass}}
+{\footnotesize\ttfamily const float Z\+\_\+mass = 91.\+19}
+

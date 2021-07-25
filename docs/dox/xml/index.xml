@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="namespaceROOT_1_1VecOps" kind="namespace"><name>ROOT::VecOps</name>
+  </compound>
+  <compound refid="exam__assignment_8h" kind="file"><name>exam_assignment.h</name>
+    <member refid="exam__assignment_8h_1a516840d797e1878ab6e1f04e28f96dd6" kind="typedef"><name>rvec_f</name></member>
+    <member refid="exam__assignment_8h_1a9b5c2a0b2a74cfbe921c7ef04b0967cc" kind="variable"><name>Z_mass</name></member>
+    <member refid="exam__assignment_8h_1a361dd468b3c2d21c65fc96a3c9a35582" kind="function"><name>invariant_mass_2el2mu</name></member>
+    <member refid="exam__assignment_8h_1afcd3e5b395a6349c21bec53015be4506" kind="function"><name>calculation_Z_mass_2el2mu</name></member>
+    <member refid="exam__assignment_8h_1aafdcde7673d12c7e41f3b6c4e9e8616c" kind="function"><name>invariant_mass_4l</name></member>
+    <member refid="exam__assignment_8h_1a97276c943d043a9716cbeeb223545556" kind="function"><name>calculation_Z_mass_4l</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/giovanni/workspace/exam_assignment/include</name>
+  </compound>
+</doxygenindex>
