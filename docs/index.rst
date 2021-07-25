@@ -17,7 +17,7 @@ Welcome to higgs_to4l_analysis's documentation!
    :caption: API reference
    
    higgs_to4l_analysis
-
+   core
 
 
 Indices and tables
