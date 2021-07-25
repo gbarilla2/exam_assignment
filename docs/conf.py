@@ -58,7 +58,7 @@ extensions = [
 ]
 
 breathe_projects = {
-    "higgs_to4l_analysis":"/home/giovanni/workspace/exam_assignment/docs/dox/xml/",
+    "higgs_to4l_analysis":"../dox/xml/",
     }
 
 # Add any paths that contain templates here, relative to this directory.
