@@ -1,5 +1,5 @@
 # Exam assignment
-
+[![Documentation Status](https://readthedocs.org/projects/cmepda20-giovanni/badge/?version=latest)](https://cmepda20-giovanni.readthedocs.io/en/latest/?badge=latest)
 
 This is the project for the exam of computing methods for experimental physics. The scope of this work is to find the Higgs boson in the decay channel H->ZZ->4l with CMS Open data.
 
