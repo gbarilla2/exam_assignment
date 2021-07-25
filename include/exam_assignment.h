@@ -7,7 +7,7 @@ using rvec_f = const RVec<float> &;
 const float Z_mass = 91.19;
 
 
-//This function return the invariant mass of 2e 2mu
+/**This function return the invariant mass of 2e 2mu*/
 float invariant_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta,
                                                 rvec_f mu_phi, rvec_f mu_mass)
     {
@@ -19,8 +19,8 @@ float invariant_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f e
 	return (p1 + p2 + p3 + p4).M();
     }
 
-//This function return the mass of Z bosons ordered through the lepton pair that 
-//closest to Z mass
+/**This function return the mass of Z bosons ordered through the lepton pair that 
+closest to Z mass*/
 RVec<float> calculation_Z_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi,
 									  rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta,
                                       rvec_f mu_phi, rvec_f mu_mass)
@@ -61,7 +61,7 @@ RVec<float> calculation_Z_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi
     }
 
 
-//This function return the invariant mass of 4l
+/**This function return the invariant mass of 4l*/
 float invariant_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass)
 	{
 	ROOT::Math::PtEtaPhiMVector p1(pt[0], eta[0], phi[0], mass[0]);
@@ -73,7 +73,7 @@ float invariant_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass)
 	}
 	
 	
-//This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass
+/**This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass*/
 RVec<float> calculation_Z_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass, rvec_f charge)
     {
 	RVec<float> Z_mass_vec{-1,-1};
@@ -88,7 +88,7 @@ RVec<float> calculation_Z_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass
 	ROOT::Math::PtEtaPhiMVector p3(pt[2], eta[2], phi[2], mass[2]);
 	ROOT::Math::PtEtaPhiMVector p4(pt[3], eta[3], phi[3], mass[3]);
 	RVec<ROOT::Math::PtEtaPhiMVector> p{p1,p2,p3,p4};
-	//This save the positive and negative index
+	//!This save the positive and negative index
 	for (int k=0; k<4 ;k++) {
 		if( charge[k] == 1 ){
 			pos_charge[i]=k;
@@ -99,7 +99,7 @@ RVec<float> calculation_Z_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass
 			j++;
 		}
 	}
-	//This save the Z masses possible combination with two lepton of the opposite charge
+	/**This save the Z masses possible combination with two lepton of the opposite charge*/
 	Z_masses_temp[0]=(p[pos_charge[0]]+p[neg_charge[0]]).M();
 	Z_masses_temp[1]=(p[pos_charge[1]]+p[neg_charge[1]]).M();	
 	Z_masses_temp[2]=(p[pos_charge[0]]+p[neg_charge[1]]).M();
@@ -114,7 +114,7 @@ RVec<float> calculation_Z_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass
 	temp_masses[1]=std::abs(Z_masses_temp[1]-Z_mass);
 	temp_masses[2]=std::abs(Z_masses_temp[2]-Z_mass);
 	temp_masses[3]=std::abs(Z_masses_temp[3]-Z_mass);
-	//This give the index of the best mass for Z
+	/**This give the index of the best mass for Z*/
 	index_min = ArgMin(temp_masses);
 	if(All(DR>0.02)){
 		if (index_min == 0 || index_min == 1){
