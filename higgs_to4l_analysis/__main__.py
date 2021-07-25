@@ -12,9 +12,6 @@ ROOT.gInterpreter.Declare('#include "include/exam_assignment.h"')
 ROOT.gInterpreter.ProcessLine("ROOT::EnableImplicitMT()")
 
 
-__all__ = ["filter_z_mass", "selection_2e2mu", "selection_4mu",
-           "selection_4e", "raw_to_data_selected","montecarlo_selection"]
-
 
 def filter_z_mass(rdf):
     '''This function select good Z mass events'''

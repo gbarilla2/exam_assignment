@@ -1,5 +1,10 @@
-Module higgs_to4l_analysis
-==========================
+higgs\_to4l\_analysis package
+=============================
 
-.. automodule:: higgs_to4l_analysis
-  :members:
+higgs\_to4l\_analysis module
+-----------------------------------------
+
+.. automodule:: higgs_to4l_analysis.__main__
+    :members:
+    :undoc-members:
+    :show-inheritance:
