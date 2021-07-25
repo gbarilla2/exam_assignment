@@ -11,16 +11,16 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-'''import os
+import os
 import sys
 package_name = 'higgs_to4l_analysis'
 package_root = os.path.abspath('..')
 sys.path.insert(0, package_root)
 sys.path.insert(0, os.path.join(package_root, package_name))
-sys.path.append(os.path.abspath("."))  # To import dummy modules'''
-import os
-import sys
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.append(os.path.abspath("."))  # To import dummy modules
+#import os
+#import sys
+#sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------

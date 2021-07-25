@@ -8,6 +8,12 @@ Welcome to higgs_to4l_analysis's documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: User guide
+
+   readme
+
+.. toctree::
+   :maxdepth: 1
    :caption: API reference
    
    higgs_to4l_analysis
