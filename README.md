@@ -1,5 +1,5 @@
 # Exam assignment
-
+[![Documentation Status](https://readthedocs.org/projects/higgs_to4l_analysis-g/badge/?version=latest)](https://higgs_to4l_analysis-g.readthedocs.io/en/latest/?badge=latest)
 
 This is the project for the exam of computing methods for experimental physics. The scope of this work is to find the Higgs boson in the decay channel H->ZZ->4l with CMS Open data.
 
