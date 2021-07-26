@@ -28,8 +28,9 @@ def selection_2e2mu(rdf):
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
     Nothing will be run as only lazy action are requested.
-    The cuts used are (present on the readme file):
-    *  selection of only events with exactly two opposite charge muons and two opposite 
+    The cuts used are: (present on the readme file)
+    
+    *  Selection of only events with exactly two opposite charge muons and two opposite 
        charge electrons;
     *  Transverse momentum of muons > 5 GeV;
     *  Transverse momentum of electrons > 7 GeV;
@@ -91,8 +92,9 @@ def selection_4mu(rdf):
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
     Nothing will be run as only lazy action are requested.
-    The cuts used are (present on the readme file):
-    *  selection of only events with exactly four opposite charge muons;
+    The cuts used are: (present on the readme file)
+    
+    *  Selection of only events with exactly four opposite charge muons;
     *  Transverse momentum of muons > 5 GeV;
     *  Pseudorapidity of muons < 2.4;
     * 3D impact parameter significance < 4;  
@@ -136,8 +138,9 @@ def selection_4e(rdf):
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
     Nothing will be run as only lazy action are requested.
-    The cuts used are (present on the readme file):
-    *  selection of only events with exactly four opposite charge electrons;
+    The cuts used are: (present on the readme file)
+    
+    *  Selection of only events with exactly four opposite charge electrons;
     *  Transverse momentum of electrons > 7 GeV;
     *  Pseudorapidity of electrons < 2.5;
     * 3D impact parameter significance < 4;  
