@@ -28,7 +28,7 @@ optional arguments:
 ## Object and Event selection
 The events are selected by applying the following cuts:
 
-  -4 particle for event (4&mu;,4e,2&mu;2e);  
+  - four lepton, in particular total charge and lepton number of 4l is neutral (4&mu;,4e,2&mu;2e);  
   -
   -
   -
