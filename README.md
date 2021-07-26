@@ -28,7 +28,7 @@ optional arguments:
 ## Object and Event selection
 
 The events are selected by applying the following cuts:
-  -4 particle for event (4&mu;,4e,2&mu;2e)  
+  -4 particle for event (4&mu;,4e,2&mu;2e);  
   -
   -
   -
