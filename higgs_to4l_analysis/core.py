@@ -192,6 +192,7 @@ def selection_4e(rdf):
 def raw_to_data_selected(fast_active=True , local_active=True):
     '''This function read the data from a .root input file
     and take the the Events `TTree`.
+    
     :param fast_active: Optional argument parser
     :type fast_active: bool
     :param local_active: Optional argument parser
