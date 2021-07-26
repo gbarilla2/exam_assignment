@@ -6,7 +6,17 @@ __all__ = ["filter_z_mass", "selection_2e2mu", "selection_4mu",
 
 
 def filter_z_mass(rdf):
-    '''This function select good Z mass events'''
+    '''This function select good Z mass events
+    :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
+    :type input_file: ROOT.RDataFrame
+    :rtype: ROOT.RDataFrame
+    Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
+    by calling ``Filter`` and returns the result. 
+    The cuts used are: (present on the readme file)
+    
+    *  Mass of the lepton pair that closest to Z mass 40 < m < 120 GeV;
+    *  Mass of the other lepton pair 12 < m < 120 GeV;
+    '''
 
     rdf_z_a_mass = rdf.Filter("Z_mass[0] > 40 && Z_mass[0] < 120",\
     "Mass of first Z candidate in [40, 120]")
@@ -180,7 +190,14 @@ def selection_4e(rdf):
 
 
 def raw_to_data_selected(fast_active=True , local_active=True):
-    '''This is the selection function'''
+    '''This function read the data from a .root input file
+    and take the the Events `TTree`.
+    :param fast_active: Optional argument parser
+    :type fast_active: bool
+    :param local_active: Optional argument parser
+    :type local_active: bool
+    
+    '''
 
     if fast_active == False:
 
