@@ -44,6 +44,6 @@ The histogram is built by calculating the invariant mass of the selected events 
 From the difference of the histograms it is obtained the subplot to calculate the Higgs mass. The mass is calculated
 using a simple Gaussian fit made with the RooFit library.
 
-![image](../higgs_4l.svg)
+![image](../image/higgs_4l.svg)
 
 

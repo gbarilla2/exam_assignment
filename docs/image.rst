@@ -1,2 +1,2 @@
-.. figure:: ../higgs_4l.svg
+.. figure:: ../image/higgs_4l.svg
         
