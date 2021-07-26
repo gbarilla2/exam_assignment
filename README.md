@@ -41,7 +41,8 @@ The events are selected by applying the following cuts:
 
 ## Histogram and Fit
 The histogram is built by calculating the invariant mass of the selected events for both the data and the montecarlo.
-From the difference of the histograms it is obtained the subplot to calculate the Higgs mass.
+From the difference of the histograms it is obtained the subplot to calculate the Higgs mass. The mass is calculated
+using a simple Gaussian fit made with the RooFit library.
 
 ![image](higgs_4l.svg)
 
