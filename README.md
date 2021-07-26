@@ -12,10 +12,9 @@ Python3 and [PyRoot](https://root.cern/manual/python/)
 
 ## Usage
 
-usage: 
-'''bash
+usage: ```bash
 python3 -i -m higgs_to4l_analysis [-h] [-nofast] [-local] [-time]
-'''
+```
 
 Program that find the Higgs boson in the decay channel H->ZZ->4l with CMS Open data.
 
