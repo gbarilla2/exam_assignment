@@ -19,6 +19,7 @@ python3 -i -m higgs_to4l_analysis [-h] [-nofast] [-local] [-time]
 Program that find the Higgs boson in the decay channel H->ZZ->4l with CMS Open data.
 
 optional arguments:
+
 | -h, --help  | show this help message and exit |
 | -nofast     | No-fast mode take data from raw file and it does the data selection. This saves also data selected to data path.|                                                 
 | -local      | Local mode take data from raw file in local and it does the data selection. |
