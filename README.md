@@ -18,10 +18,10 @@ python3 -i -m higgs_to4l_analysis [-h] [-nofast] [-local] [-time]
 
 | option | description |
 |----|---|
-| -h, --help | show this help message and exit                                                                                   |
+| -h, --help | show this help message and exit |
 | -nofast    | No-fast mode take data from raw file and it does the data  selection. This saves also data selected to data path. |
-| -local     | Local mode take data from raw file in local and it does the data selection.                                       |
-| -time      | Print the execution time.                                                                                         |
+| -local     | Local mode take data from raw file in local and it does the data selection. |
+| -time      | Print the execution time. |
 
 ## Object and Event selection
 The events are selected by applying the following cuts:
