@@ -12,7 +12,7 @@ Python3 and [PyRoot](https://root.cern/manual/python/)
 
 ## Usage
 
-```bash
+```
 python3 -i -m higgs_to4l_analysis [-h] [-nofast] [-local] [-time]
 ```
 
