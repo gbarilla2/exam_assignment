@@ -55,6 +55,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'breathe',
+    'm2r'
 ]
 
 breathe_projects = {
