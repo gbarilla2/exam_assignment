@@ -39,6 +39,10 @@ The events are selected by applying the following cuts:
  - Mass of the lepton pair that closest to Z mass 40 < m < 120 GeV;
  - Mass of the other lepton pair 12 < m < 120 GeV;
 
-## 
+## Histogram and Fit
+The histogram is built by calculating the invariant mass of the selected events for both the data and the montecarlo.
+From the difference of the histograms it is obtained the subplot to calculate the Higgs mass.
+
+![image](higgs_4l.pdf)
 
 
