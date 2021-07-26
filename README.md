@@ -27,17 +27,16 @@ optional arguments:
 
 ## Object and Event selection
 The events are selected by applying the following cuts:
-
-  - four lepton for event, in particular total charge and lepton number of 4l is neutral (4&mu;,4e,2&mu;2e);  
-  - Transverse momentum;
-    --muon > 5 GeV;
-    --electron > 7 GeV;
-  - Pseudorapidity;
-    --muon < 2.4;
-    --electron < 2.5;
-  - Relative isolation < 0.4;
-  - 3D impact parameter significance < 4;
-  - Longitudinal impact parameter w.r.t. primary vertex < 0.5 cm;
-  - Transverse impact parameter w.r.t. primary vertex < 1 cm;
-  - Mass of the lepton pair that closest to Z mass 40 < m < 120 GeV;
-  - Mass of the other lepton pair 12 < m < 120 GeV;
+ - four lepton for event, in particular total charge and lepton number of 4l is neutral (4&mu;,4e,2&mu;2e);  
+ - Transverse momentum;
+    -muon > 5 GeV;
+    -electron > 7 GeV;
+ - Pseudorapidity;
+    -muon < 2.4;
+    -electron < 2.5;
+ - Relative isolation < 0.4;
+ - 3D impact parameter significance < 4;  
+ - Longitudinal impact parameter w.r.t. primary vertex < 0.5 cm;
+ - Transverse impact parameter w.r.t. primary vertex < 1 cm;
+ - Mass of the lepton pair that closest to Z mass 40 < m < 120 GeV;
+ - Mass of the other lepton pair 12 < m < 120 GeV;
