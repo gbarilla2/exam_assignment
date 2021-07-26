@@ -29,6 +29,6 @@ optional arguments:
 The events are selected by applying the following cuts:
 
   - four lepton for event, in particular total charge and lepton number of 4l is neutral (4&mu;,4e,2&mu;2e);  
-  - p[^&mu;][_t] ;
+  - p^{&mu;}{_t} ;
   -
   -
