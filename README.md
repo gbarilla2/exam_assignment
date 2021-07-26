@@ -15,15 +15,10 @@ Python3 and [PyRoot](https://root.cern/manual/python/)
 ```
 python3 -i -m higgs_to4l_analysis [-h] [-nofast] [-local] [-time]
 ```
-
-Program that find the Higgs boson in the decay channel H->ZZ->4l with CMS Open data.
-
-optional arguments:
-
-| -h, --help  | show this help message and exit |
-| -nofast     | No-fast mode take data from raw file and it does the data selection. This saves also data selected to data path.|                                                 
-| -local      | Local mode take data from raw file in local and it does the data selection. |
-| -time       | Print the execution time. |
+| -h, --help | show this help message and exit                                                                                   |
+| -nofast    | No-fast mode take data from raw file and it does the data  selection. This saves also data selected to data path. |
+| -local     | Local mode take data from raw file in local and it does the data selection.                                       |
+| -time      | Print the execution time.                                                                                         |
 
 ## Object and Event selection
 The events are selected by applying the following cuts:
