@@ -28,10 +28,10 @@ optional arguments:
 ## Object and Event selection
 The events are selected by applying the following cuts:
  - four lepton for event, in particular total charge and lepton number of 4l is neutral (4&mu;,4e,2&mu;2e);  
- - Transverse momentum;
+ - Transverse momentum:
     -muon > 5 GeV;
     -electron > 7 GeV;
- - Pseudorapidity;
+ - Pseudorapidity:
     -muon < 2.4;
     -electron < 2.5;
  - Relative isolation < 0.4;
