@@ -12,7 +12,6 @@ Python3 and [PyRoot](https://root.cern/manual/python/)
 
 ## Usage
 
-usage:
 ```bash
 python3 -i -m higgs_to4l_analysis [-h] [-nofast] [-local] [-time]
 ```
@@ -26,5 +25,10 @@ optional arguments:
   -local      Local mode take data from raw file in local and it does the data selection.
   -time       Print the execution time.
 
-## 
+## Object and Event selection
 
+The events are selected by applying the following cuts:
+  -4 particle for event (4&mu;,4e,2&mu;2e)  
+  -
+  -
+  -
