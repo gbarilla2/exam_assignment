@@ -20,7 +20,28 @@ def filter_z_mass(rdf):
 
 
 def selection_2e2mu(rdf):
-    '''This function select events with e+ e- mu+ mu-'''
+    '''This function select events with e+ e- mu+ mu-.
+    
+    :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
+    :type input_file: ROOT.RDataFrame
+    :rtype: ROOT.RDataFrame
+    Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
+    by calling ``Filter`` and returns the result. 
+    Nothing will be run as only lazy action are requested.
+    The cuts used are: (present on the readme file)
+    *  selection of only events with exactly two opposite charge muons and two opposite 
+       charge electrons;
+    *  Transverse momentum of muons > 5 GeV;
+    *  Transverse momentum of electrons > 7 GeV;
+    *  Pseudorapidity of muons < 2.4;
+    *  Pseudorapidity of electrons < 2.5;
+    * 3D impact parameter significance < 4;  
+    * Longitudinal impact parameter w.r.t. primary vertex < 0.5 cm;
+    * Transverse impact parameter w.r.t. primary vertex < 1 cm;
+    
+    To filter will be created ``Electron_3DIP``, ``Electron_3DIPS``,
+    ``Muon_3DIP``, ``Muon_3DIPS`` and ``Z_mass`` columns
+    '''
 
     rdf_2e2mu = rdf.Filter("nElectron == 2 && nMuon == 2",\
     "First selection with at least 2 electrons and 2 muons")
@@ -62,7 +83,24 @@ def selection_2e2mu(rdf):
     return rdf_cut
 
 def selection_4mu(rdf):
-    '''This function select events with 2mu+ 2mu-'''
+    '''This function select events with 2mu+ 2mu-
+    
+    :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
+    :type input_file: ROOT.RDataFrame
+    :rtype: ROOT.RDataFrame
+    Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
+    by calling ``Filter`` and returns the result. 
+    Nothing will be run as only lazy action are requested.
+    The cuts used are: (present on the readme file)
+    *  selection of only events with exactly four opposite charge muons;
+    *  Transverse momentum of muons > 5 GeV;
+    *  Pseudorapidity of muons < 2.4;
+    * 3D impact parameter significance < 4;  
+    * Longitudinal impact parameter w.r.t. primary vertex < 0.5 cm;
+    * Transverse impact parameter w.r.t. primary vertex < 1 cm;
+    
+    To filter will be created ``Muon_3DIP``, ``Muon_3DIPS`` and ``Z_mass`` columns
+    '''
 
     rdf_4mu = rdf.Filter("nMuon == 4", "First selection with 4 muons")
 
@@ -90,8 +128,26 @@ def selection_4mu(rdf):
     return rdf_cut
 
 def selection_4e(rdf):
-    '''This function select events with 2e+ 2e-'''
-
+    '''This function select events with 2e+ 2e-
+    
+    :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
+    :type input_file: ROOT.RDataFrame
+    :rtype: ROOT.RDataFrame
+    Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
+    by calling ``Filter`` and returns the result. 
+    Nothing will be run as only lazy action are requested.
+    The cuts used are: (present on the readme file)
+    *  selection of only events with exactly four opposite charge electrons;
+    *  Transverse momentum of electrons > 7 GeV;
+    *  Pseudorapidity of electrons < 2.5;
+    * 3D impact parameter significance < 4;  
+    * Longitudinal impact parameter w.r.t. primary vertex < 0.5 cm;
+    * Transverse impact parameter w.r.t. primary vertex < 1 cm;
+    
+    To filter will be created ``Electron_3DIP``, ``Electron_3DIPS``,
+    and ``Z_mass`` columns
+    '''
+    
     rdf_4e = rdf.Filter("nElectron == 4", "First selection with 4 electrons")
 
     rdf_kin = rdf_4e.Filter("All(Electron_pt>7) && All(abs(Electron_eta)<2.5)", "Kinematics cuts")
