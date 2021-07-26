@@ -43,6 +43,6 @@ The events are selected by applying the following cuts:
 The histogram is built by calculating the invariant mass of the selected events for both the data and the montecarlo.
 From the difference of the histograms it is obtained the subplot to calculate the Higgs mass.
 
-![image](higgs_4l.pdf)
+![image](higgs_4l.svg)
 
 
