@@ -198,10 +198,12 @@ def raw_to_data_selected(fast_active=True , local_active=True):
     :param local_active: Optional argument parser
     :type local_active: bool
     
-    If fast_active is False (disabled) the function redo the
-    selection on the raw data instead if it is True skip this 
+    .. role:: bluetext
+    
+    If fast_active is :bluetext:`False` (disabled) the function redo the
+    selection on the raw data instead if it is :bluetext:`True` skip this 
     function directly without doing anything.
-    If local_active is False the function takes data from local
+    If local_active is :bluetext:`False` the function takes data from local
     instead if is True it takes directly from CMS open data.
     
     If you want to run it with local_active activated you must 
@@ -264,10 +266,12 @@ def montecarlo_selection(fast_active=True , local_active=True):
     :param local_active: Optional argument parser
     :type local_active: bool
     
-    If fast_active is False (disabled) the function redo the
-    selection on the raw data instead if it is True skip this 
+    .. role:: bluetext
+    
+    If fast_active is :bluetext:`False` (disabled) the function redo the
+    selection on the raw data instead if it is :bluetext:`True` skip this 
     function directly without doing anything.
-    If local_active is False the function takes data from local
+    If local_active is :bluetext:`False` the function takes data from local
     instead if is True it takes directly from CMS open data.
     
     If you want to run it with local_active activated you must 
