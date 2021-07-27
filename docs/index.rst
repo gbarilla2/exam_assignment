@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to higgs_to4l_analysis's documentation!
-===============================================
+Welcome to higgs to 4l analysis's documentation!
+================================================
 
 .. toctree::
    :maxdepth: 1
