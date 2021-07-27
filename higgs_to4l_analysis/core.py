@@ -7,9 +7,11 @@ __all__ = ["filter_z_mass", "selection_2e2mu", "selection_4mu",
 
 def filter_z_mass(rdf):
     '''This function select good Z mass events
+    
     :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
     :type input_file: ROOT.RDataFrame
     :rtype: ROOT.RDataFrame
+    
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
     The cuts used are: (present on the readme file)
