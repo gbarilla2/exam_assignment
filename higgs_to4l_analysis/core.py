@@ -198,6 +198,30 @@ def raw_to_data_selected(fast_active=True , local_active=True):
     :param local_active: Optional argument parser
     :type local_active: bool
     
+    If fast_active is False (disabled) the function redo the
+    selection on the raw data instead if it is True skip this 
+    function directly without doing anything.
+    If local_active is False the function takes data from local
+    instead if is True it takes directly from CMS open data.
+    
+    If you want to run it with local_active activated you must 
+    have saved the data in the root path with the following 
+    command-line in a python3 env (ROOT required):
+    
+    .. code-block:: python
+        
+        import ROOT
+        
+        data_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+        rdf = ROOT.RDataFrame("Events", (data_path + f for f in ["Run2012B_DoubleMuParked.root",\
+        "Run2012C_DoubleMuParked.root", "Run2012B_DoubleElectron.root", \
+        "Run2012C_DoubleElectron.root"]))
+        rdf.Snapshot("Events", "dati.root")
+        
+    During this will be created "InvariantMass" column to filter 
+    the invariant mass of the system by requiring it greater 
+    than 70 GeV.
+    
     '''
 
     if fast_active == False:
@@ -232,7 +256,40 @@ def raw_to_data_selected(fast_active=True , local_active=True):
         mass_4e.Snapshot("Events", "data/4eToZZ.root")
 
 def montecarlo_selection(fast_active=True , local_active=True):
-    '''This is the selection function'''
+    '''This function read the data from a .root input file
+    and take the the Events `TTree`.
+    
+    :param fast_active: Optional argument parser
+    :type fast_active: bool
+    :param local_active: Optional argument parser
+    :type local_active: bool
+    
+    If fast_active is False (disabled) the function redo the
+    selection on the raw data instead if it is True skip this 
+    function directly without doing anything.
+    If local_active is False the function takes data from local
+    instead if is True it takes directly from CMS open data.
+    
+    If you want to run it with local_active activated you must 
+    have saved the data in the root path with the following 
+    command-line in a python3 env (ROOT required):
+    
+    .. code-block:: python
+        
+        import ROOT
+        
+        montecarlo_path = "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/"
+        montecarlo_2e2mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo2e2mu.root")
+        montecarlo_4mu_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4mu.root")
+        montecarlo_4e_rdf = ROOT.RDataFrame("Events", montecarlo_path + "ZZTo4e.root")
+        montecarlo_2e2mu_rdf.Snapshot("Events", "monte_2e2mu.root")
+        montecarlo_4mu_rdf.Snapshot("Events", "monte_4mu.root")
+        montecarlo_4e_rdf.Snapshot("Events", "monte_4e.root")
+        
+    During this will be created "weight" and "InvariantMass" 
+    columns to filter the invariant mass of the system by
+    requiring it greater than 70 GeV.    
+    '''
 
     if fast_active == False:
 
