@@ -183,7 +183,34 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass </p>
+<p>This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass. For the purpose of the calculation we will build 4-vectors using the class <code>ROOT::Math::PtEtaPhiMVector</code> imported from ROOT. This class describing a generic LorentzVector in the 4D space-time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from ROOT with the class <code>ROOT::VecOps::RVec&lt; T &gt;</code> that is a "std::vector"-like collection of values. (T is the type of the contained objects) The function computes the invariant mass of the system e+e- and of the system mu+mu-, the closest to Z mass is saved in the first place of the Z_mass_vec the other in the second.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_pt</td><td>Transverse momentum of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_eta</td><td>Eta angle of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_phi</td><td>Phi angle of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_mass</td><td>Mass of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_pt</td><td>Transverse momentum of muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_eta</td><td>Eta angle of muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_phi</td><td>Phi angle of muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_mass</td><td>Mass of muons; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>Z_mass_vec</code>: A 2-vector that contains the invariant masses of the system; </dd></dl>
 
 </div>
 </div>
@@ -230,7 +257,28 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass </p>
+<p>This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass for the 4e or 4mu system. For the purpose of the calculation we will build 4-vectors using the class <code>ROOT::Math::PtEtaPhiMVector</code> imported from ROOT. This class describing a generic LorentzVector in the 4D space-time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from ROOT with the class <code>ROOT::VecOps::RVec&lt; T &gt;</code> that is a "std::vector"-like collection of values. (T is the type of the contained objects) The function computes the invariant mass of the system l+l-, the closest to Z mass is saved in the first place of the Z_mass_vec the other in the second.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pt</td><td>Transverse momentum of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eta</td><td>Eta angle of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">phi</td><td>Phi angle of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mass</td><td>Mass of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">charge</td><td>Charge of electrons/muons; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>Z_mass_vec</code>: A 2-vector that contains the invariant masses of the system; </dd></dl>
 <p>This save the positive and negative index</p>
 <p>This save the Z masses possible combination with two lepton of the opposite charge</p>
 <p>This give the index of the best mass for Z</p>
@@ -298,7 +346,34 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function return the invariant mass of 2e 2mu </p>
+<p>This function return the invariant mass of 2e 2mu system. For the purpose of the calculation we will build 4-vectors using the class <code>ROOT::Math::PtEtaPhiMVector</code> imported from ROOT. This class describing a generic LorentzVector in the 4D space-time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from ROOT with the class <code>ROOT::VecOps::RVec&lt; T &gt;</code> that is a "std::vector"-like collection of values. (T is the type of the contained objects)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_pt</td><td>Transverse momentum of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_eta</td><td>Eta angle of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_phi</td><td>Phi angle of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">el_mass</td><td>Mass of electrons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_pt</td><td>Transverse momentum of muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_eta</td><td>Eta angle of muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_phi</td><td>Phi angle of muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu_mass</td><td>Mass of muons; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>(p1 + p2 + p3 + p4).M()</code>: The invariant mass of the system; </dd></dl>
 
 </div>
 </div>
@@ -339,7 +414,26 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function return the invariant mass of 4l </p>
+<p>This function return the invariant mass of 4l system in the case of 4e or 4mu. For the purpose of the calculation we will build 4-vectors using the class <code>ROOT::Math::PtEtaPhiMVector</code> imported from ROOT. This class describing a generic LorentzVector in the 4D space-time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from ROOT with the class <code>ROOT::VecOps::RVec&lt; T &gt;</code> that is a "std::vector"-like collection of values. (T is the type of the contained objects)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pt</td><td>Transverse momentum of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eta</td><td>Eta angle of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">phi</td><td>Phi angle of electrons/muons; </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mass</td><td>Mass of electrons/muons; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+    <tr><td class="paramname">ROOT::VecOps::RVec&lt;float&gt;</td><td>; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>(p1+p2+p3+p4).M()</code>: The invariant mass of the system; </dd></dl>
 
 </div>
 </div>

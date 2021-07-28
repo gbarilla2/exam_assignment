@@ -10,6 +10,7 @@ def filter_z_mass(rdf):
     
     :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
     :type input_file: ROOT.RDataFrame
+    :returns rdf_cut: The ``RDataFrame`` filtered
     :rtype: ROOT.RDataFrame
     
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
@@ -36,6 +37,7 @@ def selection_2e2mu(rdf):
     
     :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
     :type input_file: ROOT.RDataFrame
+    :returns rdf_cut: The ``RDataFrame`` filtered
     :rtype: ROOT.RDataFrame
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
@@ -100,7 +102,9 @@ def selection_4mu(rdf):
     
     :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
     :type input_file: ROOT.RDataFrame
+    :returns rdf_cut: The ``RDataFrame`` filtered
     :rtype: ROOT.RDataFrame
+    
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
     Nothing will be run as only lazy action are requested.
@@ -146,7 +150,9 @@ def selection_4e(rdf):
     
     :param rdf: The ``RDataFrame`` from which to take the Events `TTree`.
     :type input_file: ROOT.RDataFrame
+    :returns rdf_cut: The ``RDataFrame`` filtered
     :rtype: ROOT.RDataFrame
+    
     Makes a ``ROOT.RDataFrame`` appling readme cuts to all analysis 
     by calling ``Filter`` and returns the result. 
     Nothing will be run as only lazy action are requested.

@@ -44,13 +44,87 @@ const float \mbox{\hyperlink{exam__assignment_8h_a9b5c2a0b2a74cfbe921c7ef04b0967
 \doxysubsubsection{\texorpdfstring{calculation\_Z\_mass\_2el2mu()}{calculation\_Z\_mass\_2el2mu()}}
 {\footnotesize\ttfamily R\+Vec$<$float$>$ calculation\+\_\+\+Z\+\_\+mass\+\_\+2el2mu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+mass,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+mass }\end{DoxyParamCaption})}
 
-This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass \mbox{\Hypertarget{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}\label{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}} 
+This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass. For the purpose of the calculation we will build 4-\/vectors using the class {\ttfamily R\+O\+O\+T\+::\+Math\+::\+Pt\+Eta\+Phi\+M\+Vector} imported from R\+O\+OT. This class describing a generic Lorentz\+Vector in the 4D space-\/time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from R\+O\+OT with the class {\ttfamily R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$ T $>$} that is a \char`\"{}std\+::vector\char`\"{}-\/like collection of values. (T is the type of the contained objects) The function computes the invariant mass of the system e+e-\/ and of the system mu+mu-\/, the closest to Z mass is saved in the first place of the Z\+\_\+mass\+\_\+vec the other in the second.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em el\+\_\+pt} & Transverse momentum of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em el\+\_\+eta} & Eta angle of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em el\+\_\+phi} & Phi angle of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em el\+\_\+mass} & Mass of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+pt} & Transverse momentum of muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+eta} & Eta angle of muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+phi} & Phi angle of muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+mass} & Mass of muons; \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily Z\+\_\+mass\+\_\+vec}\+: A 2-\/vector that contains the invariant masses of the system; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}\label{exam__assignment_8h_a97276c943d043a9716cbeeb223545556}} 
 \index{exam\_assignment.h@{exam\_assignment.h}!calculation\_Z\_mass\_4l@{calculation\_Z\_mass\_4l}}
 \index{calculation\_Z\_mass\_4l@{calculation\_Z\_mass\_4l}!exam\_assignment.h@{exam\_assignment.h}}
 \doxysubsubsection{\texorpdfstring{calculation\_Z\_mass\_4l()}{calculation\_Z\_mass\_4l()}}
 {\footnotesize\ttfamily R\+Vec$<$float$>$ calculation\+\_\+\+Z\+\_\+mass\+\_\+4l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mass,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{charge }\end{DoxyParamCaption})}
 
-This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass This save the positive and negative index
+This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass for the 4e or 4mu system. For the purpose of the calculation we will build 4-\/vectors using the class {\ttfamily R\+O\+O\+T\+::\+Math\+::\+Pt\+Eta\+Phi\+M\+Vector} imported from R\+O\+OT. This class describing a generic Lorentz\+Vector in the 4D space-\/time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from R\+O\+OT with the class {\ttfamily R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$ T $>$} that is a \char`\"{}std\+::vector\char`\"{}-\/like collection of values. (T is the type of the contained objects) The function computes the invariant mass of the system l+l-\/, the closest to Z mass is saved in the first place of the Z\+\_\+mass\+\_\+vec the other in the second.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pt} & Transverse momentum of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em eta} & Eta angle of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em phi} & Phi angle of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mass} & Mass of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em charge} & Charge of electrons/muons; \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily Z\+\_\+mass\+\_\+vec}\+: A 2-\/vector that contains the invariant masses of the system; 
+\end{DoxyReturn}
+This save the positive and negative index
 
 This save the Z masses possible combination with two lepton of the opposite charge
 
@@ -60,13 +134,83 @@ This give the index of the best mass for Z\mbox{\Hypertarget{exam__assignment_8h
 \doxysubsubsection{\texorpdfstring{invariant\_mass\_2el2mu()}{invariant\_mass\_2el2mu()}}
 {\footnotesize\ttfamily float invariant\+\_\+mass\+\_\+2el2mu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{el\+\_\+mass,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mu\+\_\+mass }\end{DoxyParamCaption})}
 
-This function return the invariant mass of 2e 2mu \mbox{\Hypertarget{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}\label{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}} 
+This function return the invariant mass of 2e 2mu system. For the purpose of the calculation we will build 4-\/vectors using the class {\ttfamily R\+O\+O\+T\+::\+Math\+::\+Pt\+Eta\+Phi\+M\+Vector} imported from R\+O\+OT. This class describing a generic Lorentz\+Vector in the 4D space-\/time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from R\+O\+OT with the class {\ttfamily R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$ T $>$} that is a \char`\"{}std\+::vector\char`\"{}-\/like collection of values. (T is the type of the contained objects)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em el\+\_\+pt} & Transverse momentum of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em el\+\_\+eta} & Eta angle of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em el\+\_\+phi} & Phi angle of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em el\+\_\+mass} & Mass of electrons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+pt} & Transverse momentum of muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+eta} & Eta angle of muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+phi} & Phi angle of muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mu\+\_\+mass} & Mass of muons; \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily (p1 + p2 + p3 + p4).M()}\+: The invariant mass of the system; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}\label{exam__assignment_8h_aafdcde7673d12c7e41f3b6c4e9e8616c}} 
 \index{exam\_assignment.h@{exam\_assignment.h}!invariant\_mass\_4l@{invariant\_mass\_4l}}
 \index{invariant\_mass\_4l@{invariant\_mass\_4l}!exam\_assignment.h@{exam\_assignment.h}}
 \doxysubsubsection{\texorpdfstring{invariant\_mass\_4l()}{invariant\_mass\_4l()}}
 {\footnotesize\ttfamily float invariant\+\_\+mass\+\_\+4l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{pt,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{eta,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{phi,  }\item[{\mbox{\hyperlink{exam__assignment_8h_a516840d797e1878ab6e1f04e28f96dd6}{rvec\+\_\+f}}}]{mass }\end{DoxyParamCaption})}
 
-This function return the invariant mass of 4l 
+This function return the invariant mass of 4l system in the case of 4e or 4mu. For the purpose of the calculation we will build 4-\/vectors using the class {\ttfamily R\+O\+O\+T\+::\+Math\+::\+Pt\+Eta\+Phi\+M\+Vector} imported from R\+O\+OT. This class describing a generic Lorentz\+Vector in the 4D space-\/time, using pt (rho), eta, phi and M (t) coordinates in double precision. (cylindrical coordinates) In add the parameters type is also imported from R\+O\+OT with the class {\ttfamily R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$ T $>$} that is a \char`\"{}std\+::vector\char`\"{}-\/like collection of values. (T is the type of the contained objects)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pt} & Transverse momentum of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em eta} & Eta angle of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em phi} & Phi angle of electrons/muons; \\
+\hline
+\mbox{\texttt{ in}}  & {\em mass} & Mass of electrons/muons; \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+{\em R\+O\+O\+T\+::\+Vec\+Ops\+::\+R\+Vec$<$float$>$} & ; \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily (p1+p2+p3+p4).M()}\+: The invariant mass of the system; 
+\end{DoxyReturn}
+
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{exam__assignment_8h_a9b5c2a0b2a74cfbe921c7ef04b0967cc}\label{exam__assignment_8h_a9b5c2a0b2a74cfbe921c7ef04b0967cc}} 

@@ -7,7 +7,39 @@ using rvec_f = const RVec<float> &;
 const float Z_mass = 91.19;
 
 
-/**This function return the invariant mass of 2e 2mu*/
+/**
+	* This function return the invariant mass of 2e 2mu system.
+	* For the purpose of the calculation we will build 
+	* 4-vectors using the class ``ROOT::Math::PtEtaPhiMVector``
+	* imported from ROOT.
+	* This class describing a generic LorentzVector in the 4D 
+	* space-time, using pt (rho), eta, phi and M (t) 
+	* coordinates in double precision. (cylindrical coordinates)
+	* In add the parameters type is also imported from ROOT
+	* with the class ``ROOT::VecOps::RVec< T >`` that is 
+	* a "std::vector"-like collection of values.
+	* (T is the type of the contained objects)
+	
+	* @param[in]	el_pt: Transverse momentum of electrons;
+	* @param[in]	el_eta: Eta angle of electrons;
+	* @param[in]	el_phi: Phi angle of electrons;
+	* @param[in]	el_mass: Mass of electrons;
+	* @param[in]	mu_pt: Transverse momentum of muons;
+	* @param[in]	mu_eta: Eta angle of muons;
+	* @param[in]	mu_phi: Phi angle of muons;
+	* @param[in]	mu_mass: Mass of muons;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @returns	``(p1 + p2 + p3 + p4).M()``: The invariant mass 
+	* of the system;
+
+*/
 float invariant_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta,
                                                 rvec_f mu_phi, rvec_f mu_mass)
     {
@@ -19,8 +51,44 @@ float invariant_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi, rvec_f e
 	return (p1 + p2 + p3 + p4).M();
     }
 
-/**This function return the mass of Z bosons ordered through the lepton pair that 
-closest to Z mass*/
+/**
+	* This function return the mass of Z bosons ordered through 
+	* the lepton pair that closest to Z mass.
+	* For the purpose of the calculation we will build 
+	* 4-vectors using the class ``ROOT::Math::PtEtaPhiMVector``
+	* imported from ROOT.
+	* This class describing a generic LorentzVector in the 4D 
+	* space-time, using pt (rho), eta, phi and M (t) 
+	* coordinates in double precision. (cylindrical coordinates)
+	* In add the parameters type is also imported from ROOT
+	* with the class ``ROOT::VecOps::RVec< T >`` that is 
+	* a "std::vector"-like collection of values.
+	* (T is the type of the contained objects)
+	* The function computes the invariant mass of the system 
+	* e+e- and of the system mu+mu-, the closest to Z mass is saved
+	* in the first place of the Z_mass_vec the other in the second.
+	
+	
+	* @param[in]	el_pt: Transverse momentum of electrons;
+	* @param[in]	el_eta: Eta angle of electrons;
+	* @param[in]	el_phi: Phi angle of electrons;
+	* @param[in]	el_mass: Mass of electrons;
+	* @param[in]	mu_pt: Transverse momentum of muons;
+	* @param[in]	mu_eta: Eta angle of muons;
+	* @param[in]	mu_phi: Phi angle of muons;
+	* @param[in]	mu_mass: Mass of muons;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @returns	``Z_mass_vec``: A 2-vector that contains
+	* the invariant masses of the system;
+
+*/
 RVec<float> calculation_Z_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi,
 									  rvec_f el_mass, rvec_f mu_pt, rvec_f mu_eta,
                                       rvec_f mu_phi, rvec_f mu_mass)
@@ -61,7 +129,33 @@ RVec<float> calculation_Z_mass_2el2mu(rvec_f el_pt, rvec_f el_eta, rvec_f el_phi
     }
 
 
-/**This function return the invariant mass of 4l*/
+
+/**
+	* This function return the invariant mass of 4l system in
+	* the case of 4e or 4mu.
+	* For the purpose of the calculation we will build 
+	* 4-vectors using the class ``ROOT::Math::PtEtaPhiMVector``
+	* imported from ROOT.
+	* This class describing a generic LorentzVector in the 4D 
+	* space-time, using pt (rho), eta, phi and M (t) 
+	* coordinates in double precision. (cylindrical coordinates)
+	* In add the parameters type is also imported from ROOT
+	* with the class ``ROOT::VecOps::RVec< T >`` that is 
+	* a "std::vector"-like collection of values.
+	* (T is the type of the contained objects)
+	
+	* @param[in]	pt: Transverse momentum of electrons/muons;
+	* @param[in]	eta: Eta angle of electrons/muons;
+	* @param[in]	phi: Phi angle of electrons/muons;
+	* @param[in]	mass: Mass of electrons/muons;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @returns	``(p1+p2+p3+p4).M()``: The invariant mass 
+	* of the system;
+
+*/
 float invariant_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass)
 	{
 	ROOT::Math::PtEtaPhiMVector p1(pt[0], eta[0], phi[0], mass[0]);
@@ -71,9 +165,39 @@ float invariant_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass)
 	
 	return (p1+p2+p3+p4).M();
 	}
+
+
+/**
+	* This function return the mass of Z bosons ordered through the 
+	* lepton pair that closest to Z mass for the 4e or 4mu system.
+	* For the purpose of the calculation we will build 
+	* 4-vectors using the class ``ROOT::Math::PtEtaPhiMVector``
+	* imported from ROOT.
+	* This class describing a generic LorentzVector in the 4D 
+	* space-time, using pt (rho), eta, phi and M (t) 
+	* coordinates in double precision. (cylindrical coordinates)
+	* In add the parameters type is also imported from ROOT
+	* with the class ``ROOT::VecOps::RVec< T >`` that is 
+	* a "std::vector"-like collection of values.
+	* (T is the type of the contained objects)
+	* The function computes the invariant mass of the system 
+	* l+l-, the closest to Z mass is saved
+	* in the first place of the Z_mass_vec the other in the second.
 	
-	
-/**This function return the mass of Z bosons ordered through the lepton pair that closest to Z mass*/
+	* @param[in]	pt: Transverse momentum of electrons/muons;
+	* @param[in]	eta: Eta angle of electrons/muons;
+	* @param[in]	phi: Phi angle of electrons/muons;
+	* @param[in]	mass: Mass of electrons/muons;
+	* @param[in]	charge: Charge of electrons/muons;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam 	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @tparam	ROOT::VecOps::RVec<float> ;
+	* @returns	``Z_mass_vec``: A 2-vector that contains
+	* the invariant masses of the system;
+
+*/
 RVec<float> calculation_Z_mass_4l(rvec_f pt, rvec_f eta, rvec_f phi, rvec_f mass, rvec_f charge)
     {
 	RVec<float> Z_mass_vec{-1,-1};
